@@ -525,21 +525,67 @@ tabla_means <- legal_form_means_GENERAL %>%
 # Crear un dataframe separado para los valores ANOVA
 anova_results <- data.frame(
   `Legal Form` = c("Total sample", "Spain", "Italy"),
-  `F-value (ROE)` = round(c(
-    summary(anova_roe_total)[[1]][["F value"]][1],
-    summary(anova_roe_es)[[1]][["F value"]][1],
-    summary(anova_roe_it)[[1]][["F value"]][1]
-  ), 2),
+  
+  # F-value con significancia para ROE
+  `F-value (ROE)` = paste0(
+    round(c(
+      summary(anova_roe_total)[[1]][["F value"]][1],
+      summary(anova_roe_es)[[1]][["F value"]][1],
+      summary(anova_roe_it)[[1]][["F value"]][1]
+    ), 2),
+    c(
+      ifelse(summary(anova_roe_total)[[1]][["Pr(>F)"]][1] < 0.01, "***",
+             ifelse(summary(anova_roe_total)[[1]][["Pr(>F)"]][1] < 0.05, "**",
+                    ifelse(summary(anova_roe_total)[[1]][["Pr(>F)"]][1] < 0.10, "*", "")
+             )
+      ),
+      ifelse(summary(anova_roe_es)[[1]][["Pr(>F)"]][1] < 0.01, "***",
+             ifelse(summary(anova_roe_es)[[1]][["Pr(>F)"]][1] < 0.05, "**",
+                    ifelse(summary(anova_roe_es)[[1]][["Pr(>F)"]][1] < 0.10, "*", "")
+             )
+      ),
+      ifelse(summary(anova_roe_it)[[1]][["Pr(>F)"]][1] < 0.01, "***",
+             ifelse(summary(anova_roe_it)[[1]][["Pr(>F)"]][1] < 0.05, "**",
+                    ifelse(summary(anova_roe_it)[[1]][["Pr(>F)"]][1] < 0.10, "*", "")
+             )
+      )
+    )
+  ),
+  
+  # p-value para ROE
   `p-value (ROE)` = c(
     summary(anova_roe_total)[[1]][["Pr(>F)"]][1],
     summary(anova_roe_es)[[1]][["Pr(>F)"]][1],
     summary(anova_roe_it)[[1]][["Pr(>F)"]][1]
   ),
-  `F-value (ROA)` = round(c(
-    summary(anova_roa_total)[[1]][["F value"]][1],
-    summary(anova_roa_es)[[1]][["F value"]][1],
-    summary(anova_roa_it)[[1]][["F value"]][1]
-  ), 2),
+  
+  # F-value con significancia para ROA
+  `F-value (ROA)` = paste0(
+    round(c(
+      summary(anova_roa_total)[[1]][["F value"]][1],
+      summary(anova_roa_es)[[1]][["F value"]][1],
+      summary(anova_roa_it)[[1]][["F value"]][1]
+    ), 2),
+    c(
+      ifelse(summary(anova_roa_total)[[1]][["Pr(>F)"]][1] < 0.01, "***",
+             ifelse(summary(anova_roa_total)[[1]][["Pr(>F)"]][1] < 0.05, "**",
+                    ifelse(summary(anova_roa_total)[[1]][["Pr(>F)"]][1] < 0.10, "*", "")
+             )
+      ),
+      ifelse(summary(anova_roa_es)[[1]][["Pr(>F)"]][1] < 0.01, "***",
+             ifelse(summary(anova_roa_es)[[1]][["Pr(>F)"]][1] < 0.05, "**",
+                    ifelse(summary(anova_roa_es)[[1]][["Pr(>F)"]][1] < 0.10, "*", "")
+             )
+      ),
+      ifelse(summary(anova_roa_it)[[1]][["Pr(>F)"]][1] < 0.01, "***",
+             ifelse(summary(anova_roa_it)[[1]][["Pr(>F)"]][1] < 0.05, "**",
+                    ifelse(summary(anova_roa_it)[[1]][["Pr(>F)"]][1] < 0.10, "*", "")
+             )
+      )
+    )
+  ),
+  
+  # p-value para ROA
   `p-value (ROA)` = c(
     summary(anova_roa_total)[[1]][["Pr(>F)"]][1],
     summary(anova_roa_es)[[1]][["Pr(>F)"]][1],
@@ -549,22 +595,37 @@ anova_results <- data.frame(
 
 
 
-# Crear una fila separada para los valores F y p-value
+# Crear una fila separada para los valores F y p-value con significancia
 anova_row <- data.frame(
   LForm = "F", 
-  `ROE_Total_sample` = paste0(round(anova_results$`F.value..ROE.`[1], 4), 
-                               " (", formatC(anova_results$`p.value..ROE.`[1], format = "f", digits = 4), ")"),
-  `ROA_Total_sample` = paste0(round(anova_results$`F.value..ROA.`[1], 4), 
-                               " (", formatC(anova_results$`p.value..ROA.`[1], format = "f", digits = 4), ")"),
-  `ROE_Spain` = paste0(round(anova_results$`F.value..ROE.`[2], 4), 
-                       " (", formatC(anova_results$`p.value..ROE.`[2], format = "f", digits = 4), ")"),
-  `ROA_Spain` = paste0(round(anova_results$`F.value..ROA.`[2], 4), 
-                       " (", formatC(anova_results$`p.value..ROA.`[2], format = "f", digits = 4), ")"),
-  `ROE_Italy` = paste0(round(anova_results$`F.value..ROE.`[3], 4), 
-                       " (", formatC(anova_results$`p.value..ROE.`[3], format = "f", digits = 4), ")"),
-  `ROA_Italy` = paste0(round(anova_results$`F.value..ROA.`[3], 4), 
-                       " (", formatC(anova_results$`p.value..ROA.`[3], format = "f", digits = 4), ")")
+  `ROE_Total_sample` = paste0(
+    anova_results$F.value..ROE.[1],
+    " (", formatC(anova_results$p.value..ROE.[1], format = "f", digits = 4), ")"
+  ),
+  `ROA_Total_sample` = paste0(
+    anova_results$F.value..ROA.[1],
+    " (", formatC(anova_results$p.value..ROA.[1], format = "f", digits = 4), ")"
+  ),
+  `ROE_Spain` = paste0(
+    anova_results$F.value..ROE.[2],
+    " (", formatC(anova_results$p.value..ROE.[2], format = "f", digits = 4), ")"
+  ),
+  `ROA_Spain` = paste0(
+    anova_results$F.value..ROA.[2],
+    " (", formatC(anova_results$p.value..ROA.[2], format = "f", digits = 4), ")"
+  ),
+  `ROE_Italy` = paste0(
+    anova_results$F.value..ROE.[3],
+    " (", formatC(anova_results$p.value..ROE.[3], format = "f", digits = 4), ")"
+  ),
+  `ROA_Italy` = paste0(
+    anova_results$F.value..ROA.[3],
+    " (", formatC(anova_results$p.value..ROA.[3], format = "f", digits = 4), ")"
+  )
 )
+
+# Verificar la fila con los resultados
+print(anova_row)
 
 
 # Convertir columnas en tabla_means a character
@@ -639,9 +700,3 @@ tabla_combinada %>%
   tab_source_note(
     source_note = "Source: Own elaboration."
   )
-
-
-
-
-
-
