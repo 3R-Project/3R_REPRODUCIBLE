@@ -467,9 +467,6 @@ View(correlation_matrix)
 correlation_matrix  %>% gt()
 
 #tabla 5 ----
-# Cargar librerías necesarias
-library(dplyr)
-library(rstatix)
 
 # Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) GENRAL
 legal_form_means_GENERAL <- DATA_SELECT %>% select(LForm , Country, ROA, ROE) %>% 
