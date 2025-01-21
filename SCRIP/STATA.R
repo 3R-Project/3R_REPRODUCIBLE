@@ -296,7 +296,7 @@ p_values <- map_dfr(RE_E$variable, ~ {
   var <- .x
   t_test <- t.test(E[[var]], I[[var]], var.equal = TRUE)
   p_value <- round(t_test$p.value, 4)
-  
+
   tibble(
     variable = var,
     p_value = paste0(
@@ -312,19 +312,19 @@ p_values <- map_dfr(RE_E$variable, ~ {
 })
 
 
-# Paso 1: Combinar las estadísticas descriptivas de España e Italia
+# Combinar las estadísticas descriptivas de España e Italia
 spain_italy_table <- RE_E %>%
   left_join(RE_I, by = "variable", suffix = c("_spain", "_italy"))
 
-# Paso 2: Agregar los p-values a la tabla combinada de España e Italia
+# Agregar los p-values a la tabla combinada de España e Italia
 spain_italy_table <- spain_italy_table %>%
   left_join(p_values, by = "variable")
 
-# Paso 3: Combinar la tabla general (RE_G) con la tabla de España e Italia
+# Combinar la tabla general (RE_G) con la tabla de España e Italia
 final_table <- RE_G %>%
   left_join(spain_italy_table, by = "variable", suffix = c("_total", ""))
 
-# Paso 4: Formatear la tabla con gt() para que quede como la referencia
+# Formatear la tabla con gt() 
 final_table %>%
   gt() %>%
   fmt_number(
