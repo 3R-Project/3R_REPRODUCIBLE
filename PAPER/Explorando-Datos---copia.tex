@@ -1,0 +1,1764 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+    \setmainfont[]{Times New Roman}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1 in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={REPRODUCIBILIDAD BASADO EN R},
+  pdfauthor={3R Project},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{REPRODUCIBILIDAD BASADO EN R}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{REPORTE}
+\author{3R Project}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introducción}\label{introducciuxf3n}
+
+El presente informe forma parte del Semillero de Investigación 3R
+Project: Reproducibilidad basada en R. Este proyecto tiene como objetivo
+principal transformar investigaciones científicas en documentos
+reproducibles, promoviendo la transparencia y la verificabilidad en el
+ámbito científico.
+
+En este documento se detalla el proceso de exploración y análisis de un
+conjunto de datos, utilizando herramientas de R para garantizar la
+reproducibilidad de cada etapa
+
+Durante la revisión de la data y su comparación con el informe original,
+se identificaron diversas inconsistencias que requieren un análisis
+detallado. Una de las primeras observaciones es que las variables en la
+base de datos no están en el mismo idioma que las presentadas en el
+informe, lo que puede generar dificultades en la interpretación y
+procesamiento de la información.
+
+Asimismo, se detectó una discrepancia en el número total de
+observaciones. Según la Tabla 2 del informe, el total de registros
+reportados es menor en comparación con los datos almacenados en la base
+de datos (Excel). En concreto, la diferencia total es de 134
+observaciones menos en el informe, con una reducción específica de 74
+registros en España y 60 en Italia.
+
+Otro aspecto crítico identificado es la presencia de registros con
+valores faltantes o inválidos en la base de datos, tanto en Excel como
+en R. En Excel, se presentan errores como N/A para casillas vacías de
+tipo numérico, \#NUM! cuando se intenta calcular logaritmos de números
+negativos, casillas en blanco para valores de tipo texto y \#¡DIV/0!
+cuando se realizan operaciones con celdas vacías. En R, los errores más
+comunes incluyen NAN, que indica casillas vacías, y Inf, que aparece
+cuando se intenta realizar un cálculo con valores nulos o se produce un
+error en la operación.
+
+Estas observaciones iniciales evidencian la necesidad de llevar a cabo
+un proceso de limpieza, estandarización y verificación de la data antes
+de continuar con el análisis. Garantizar la coherencia y fiabilidad de
+los datos es fundamental para obtener resultados precisos y
+reproducibles.
+
+\section{Instalación de Paquetes}\label{instalaciuxf3n-de-paquetes}
+
+Estos paquetes se instalaran para llevar a cabo un flujo de trabajo
+reproducible en la exploración de datos. tidyverse permite manipular,
+limpiar y visualizar los datos; readr facilita su importación eficiente;
+y janitor ayuda a organizarlos y limpiarlos. Para documentar y presentar
+los resultados, rstatix realiza análisis estadísticos, mientras que gt
+genera tablas profesionales y openxlsx exporta los reportes a Excel. En
+conjunto, estos paquetes garantizan un análisis reproducible, claro y
+bien documentado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"openxlsx"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"readr"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"janitor"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"rstatix"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"gt"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Carga de Librerias}\label{carga-de-librerias}
+
+Estas líneas de código en R sirven para cargar paquetes previamente
+instalados para utilizarlos en el análisis. Cada library() activa el
+paquete especificado, permitiendo el acceso a sus funciones. Aquí te
+explico brevemente qué hace cada uno:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(openxlsx)}
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(janitor)}
+\FunctionTok{library}\NormalTok{(rstatix)}
+\FunctionTok{library}\NormalTok{(gt)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Funciones Especificas}\label{funciones-especificas}
+
+Estas son funciones específicas del paquete base stats en R, y están
+relacionadas con análisis estadísticos. El prefijo stats:: se usa para
+asegurarse de que se está llamando directamente a las funciones del
+paquete stats, incluso si hay otras funciones con el mismo nombre en
+otros paquetes cargados
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stats}\SpecialCharTok{::}\NormalTok{chisq.test}
+\NormalTok{stats}\SpecialCharTok{::}\NormalTok{fisher.test}
+\NormalTok{stats}\SpecialCharTok{::}\NormalTok{filter }
+\end{Highlighting}
+\end{Shaded}
+
+\section{Importando Datos}\label{importando-datos}
+
+En esta sección, se carga el conjunto de datos en un objeto de R
+utilizando la función read.xlsx. Esto permite explorar y manipular los
+datos para análisis posteriores. La finalidad es tener acceso al archivo
+original y comenzar con la limpieza y transformación de los datos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(openxlsx)}
+\NormalTok{datos}\OtherTok{\textless{}{-}}\FunctionTok{read.xlsx}\NormalTok{(}\StringTok{"C:/Users/Usuario/Desktop/SEMILLERO/DATA\_STATA/DATA/DatosStata.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Explorando el Objeto de los
+Datos}\label{explorando-el-objeto-de-los-datos}
+
+Aquí se realiza una inspección básica del objeto de datos con la función
+str para entender su estructura y tipos de variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Eliminando Duplicados}\label{eliminando-duplicados}
+
+También se seleccionan y eliminan columnas irrelevantes con select del
+paquete dplyr, optimizando el dataset para el análisis. Esto asegura que
+solo se trabajen datos útiles para los objetivos del proyecto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos\_ex }\OtherTok{\textless{}{-}}\NormalTok{datos }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{ (}\SpecialCharTok{{-}} \FunctionTok{c}\NormalTok{(Número.de.accionistas,DM.Edad,ADV.Edad))}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Diccionario de Traducción}\label{diccionario-de-traducciuxf3n}
+
+En esta fase estudio variables del conjunto de datos de la Data que se
+encontraba en español. Dado que los datos originales estaban en español,
+se identificaron las etiquetas y nombres de las variables que
+necesitaban ser traducidas para alinearlas con las utilizadas en el
+artículo original, que estaba redactado en inglés. Lo que representaba
+un desafío para la comprensión de las variables y su correspondencia con
+las mencionadas en el documento fuente. Para garantizar una mayor
+claridad y alineación conceptual, se procedió a traducir las etiquetas y
+nombres de las variables del archivo Excel del español al inglés. Este
+paso fue esencial para comprender mejor las características y contextos
+de las variables del artículo y su relación con los datos entregados.
+
+La traducción no solo facilitó la interpretación de los datos, sino que
+también permitió identificar posibles discrepancias o inconsistencias
+entre la documentación original y los datos proporcionados. Esta etapa
+inicial fue fundamental para establecer las bases de un análisis robusto
+y coherente con los objetivos del artículo académico.''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DATA }\OtherTok{\textless{}{-}}\NormalTok{ datos\_ex }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}
+    \StringTok{"Year"} \OtherTok{=} \StringTok{"Año"}\NormalTok{,}
+    \StringTok{"ID"} \OtherTok{=} \StringTok{"Id."}\NormalTok{,}
+    \StringTok{"Identity"} \OtherTok{=} \StringTok{"Ident"}\NormalTok{,}
+    \StringTok{"Gender"} \OtherTok{=} \StringTok{"Género"}\NormalTok{,}
+    \StringTok{"Company\_Name"} \OtherTok{=} \StringTok{"Nombre.empresa"}\NormalTok{,}
+    \StringTok{"City"} \OtherTok{=} \StringTok{"Ciudad"}\NormalTok{,}
+    \StringTok{"Country\_ISO\_Code"} \OtherTok{=} \StringTok{"Código.ISO.del.país"}\NormalTok{,}
+    \StringTok{"Total\_Assets"} \OtherTok{=} \StringTok{"Activos.totales"}\NormalTok{,}
+    \StringTok{"Growth"} \OtherTok{=} \StringTok{"Grow"}\NormalTok{,}
+    \StringTok{"GDP"} \OtherTok{=} \StringTok{"PIB"}\NormalTok{,}
+    \StringTok{"GDP\_Var"} \OtherTok{=} \StringTok{"VarPIB"}\NormalTok{,}
+    \StringTok{"Inflation"} \OtherTok{=} \StringTok{"Inflacion"}\NormalTok{,}
+    \StringTok{"Ln\_GDP"} \OtherTok{=} \StringTok{"LnPIB"}\NormalTok{,}
+    \StringTok{"Ln\_Inflation"} \OtherTok{=} \StringTok{"LnInflacion"}\NormalTok{,}
+    \StringTok{"Country"} \OtherTok{=} \StringTok{"Pais"}\NormalTok{,}
+    \StringTok{"NACE\_Code"} \OtherTok{=} \StringTok{"NACE.code"}\NormalTok{,}
+    \StringTok{"Employees\_Last\_Year"} \OtherTok{=} \StringTok{"Número.empleados.Últ..año.disp."}\NormalTok{,}
+    \StringTok{"Standard\_Legal\_Form"} \OtherTok{=} \StringTok{"Forma.jurídica.estándar"}\NormalTok{,}
+    \StringTok{"Legal\_Form\_Tabul"} \OtherTok{=} \StringTok{"FJurídicaTabul"}\NormalTok{,}
+    \StringTok{"Legal\_Form"} \OtherTok{=} \StringTok{"FormaJurídica"}\NormalTok{,}
+    \StringTok{"Incorporation\_Date"} \OtherTok{=} \StringTok{"Fecha.de.constitución"}\NormalTok{,}
+    \StringTok{"End\_Date"} \OtherTok{=} \StringTok{"Fecha.final"}\NormalTok{,}
+    \StringTok{"Seniority"} \OtherTok{=} \StringTok{"Antigüedad"}\NormalTok{,}
+    \StringTok{"Ln\_Seniority"} \OtherTok{=} \StringTok{"LnAntigüedad"}\NormalTok{,}
+    \StringTok{"Cash\_Flows"} \OtherTok{=} \StringTok{"Flujos.de.Caja"}\NormalTok{,}
+    \StringTok{"Fixed\_Assets"} \OtherTok{=} \StringTok{"Activos.Fijos"}\NormalTok{,}
+    \StringTok{"Current\_Assets"} \OtherTok{=} \StringTok{"Activos.Corrientes"}\NormalTok{,}
+    \StringTok{"Inventory"} \OtherTok{=} \StringTok{"Stock"}\NormalTok{,}
+    \StringTok{"Receivables"} \OtherTok{=} \StringTok{"Deudores"}\NormalTok{,}
+    \StringTok{"Other\_Current\_Assets"} \OtherTok{=} \StringTok{"Otros.activos.corrientes"}\NormalTok{,}
+    \StringTok{"Cash\_and\_Equivalents"} \OtherTok{=} \StringTok{"Efectivo.y.equivalentes"}\NormalTok{,}
+    \StringTok{"Ln\_Fixed\_Assets"} \OtherTok{=} \StringTok{"LnActFijo"}\NormalTok{,}
+    \StringTok{"Ln\_Current\_Assets"} \OtherTok{=} \StringTok{"LnActCorr"}\NormalTok{,}
+    \StringTok{"Ln\_Inventory"} \OtherTok{=} \StringTok{"LnStock"}\NormalTok{,}
+    \StringTok{"Ln\_Receivables"} \OtherTok{=} \StringTok{"LnDeudores"}\NormalTok{,}
+    \StringTok{"Ln\_Other\_Assets"} \OtherTok{=} \StringTok{"LnOtrosactiv"}\NormalTok{,}
+    \StringTok{"Ln\_Cash"} \OtherTok{=} \StringTok{"LnEfectivo"}\NormalTok{,}
+    \StringTok{"Ln\_Total\_Assets"} \OtherTok{=} \StringTok{"LnActTotal"}\NormalTok{,}
+    \StringTok{"Non\_Current\_Liabilities"} \OtherTok{=} \StringTok{"Pasivos.no.corrientes"}\NormalTok{,}
+    \StringTok{"Current\_Liabilities"} \OtherTok{=} \StringTok{"Pasivos.Corrientes"}\NormalTok{,}
+    \StringTok{"Liquidity1"} \OtherTok{=} \StringTok{"Liquidez1"}\NormalTok{,}
+    \StringTok{"Liquidity1\_Dummy"} \OtherTok{=} \StringTok{"Liquidez1Dummy"}\NormalTok{,}
+    \StringTok{"Total\_Liabilities"} \OtherTok{=} \StringTok{"Pasivo.Total"}\NormalTok{,}
+    \StringTok{"Equity"} \OtherTok{=} \StringTok{"Fondos.Propios"}\NormalTok{,}
+    \StringTok{"Ln\_Non\_Current\_Liabilities"} \OtherTok{=} \StringTok{"LnPasivoNoCorr"}\NormalTok{,}
+    \StringTok{"Ln\_Current\_Liabilities"} \OtherTok{=} \StringTok{"LnPasivoCorr"}\NormalTok{,}
+    \StringTok{"Ln\_Total\_Liabilities"} \OtherTok{=} \StringTok{"LnPasivoTotal"}\NormalTok{,}
+    \StringTok{"Ln\_Equity"} \OtherTok{=} \StringTok{"LnFondosPropios"}\NormalTok{,}
+    \StringTok{"Operating\_Revenue"} \OtherTok{=} \StringTok{"Ingresos.Explotación"}\NormalTok{,}
+    \StringTok{"Operating\_Profit"} \OtherTok{=} \StringTok{"Resultado.Explotación"}\NormalTok{,}
+    \StringTok{"Financial\_Expenses"} \OtherTok{=} \StringTok{"Gastos.Financieros"}\NormalTok{,}
+    \StringTok{"Ordinary\_Profit\_Before\_Tax"} \OtherTok{=} \StringTok{"Rdo..Ordinario.antes.Impuestos"}\NormalTok{,}
+    \StringTok{"Taxes"} \OtherTok{=} \StringTok{"Impuestos"}\NormalTok{,}
+    \StringTok{"Ordinary\_Activities\_Profit"} \OtherTok{=} \StringTok{"Rdo..Actividades.Odinarias"}\NormalTok{,}
+    \StringTok{"Extraordinary\_and\_Other\_Profit"} \OtherTok{=} \StringTok{"Rdo..Extr..y.Otros"}\NormalTok{,}
+    \StringTok{"Net\_Profit"} \OtherTok{=} \StringTok{"Rdo.Ejercicio"}\NormalTok{,}
+    \StringTok{"ROE"} \OtherTok{=} \StringTok{"ROE"}\NormalTok{,}
+    \StringTok{"ROA"} \OtherTok{=} \StringTok{"ROA"}\NormalTok{,}
+    \StringTok{"Collection\_Period"} \OtherTok{=} \StringTok{"Período.de.Cobro"}\NormalTok{,}
+    \StringTok{"Credit\_Period"} \OtherTok{=} \StringTok{"Período.de.Credito"}\NormalTok{,}
+    \StringTok{"ROEE"} \OtherTok{=} \StringTok{"ROEE"}\NormalTok{,}
+    \StringTok{"ROAA"} \OtherTok{=} \StringTok{"ROAA"}\NormalTok{,}
+    \StringTok{"CollectionPeriod"} \OtherTok{=} \StringTok{"PeríodoCobro"}\NormalTok{,}
+    \StringTok{"Payment\_Period"} \OtherTok{=} \StringTok{"PeríodoPago"}\NormalTok{,}
+    \StringTok{"PMC\_PMP"} \OtherTok{=} \StringTok{"PMC{-}PMP"}\NormalTok{,}
+    \StringTok{"Net\_Asset\_Turnover"} \OtherTok{=} \StringTok{"Rotación.de.activos.netos"}\NormalTok{,}
+    \StringTok{"Inventory\_Turnover"} \OtherTok{=} \StringTok{"Rotación.de.las.existencias"}\NormalTok{,}
+    \StringTok{"Solvency\_Turnover"} \OtherTok{=} \StringTok{"Rotacion.de.Solvencia"}\NormalTok{,}
+    \StringTok{"Asset\_Turnover"} \OtherTok{=} \StringTok{"RotacActivos"}\NormalTok{,}
+    \StringTok{"InventoryTurnover"} \OtherTok{=} \StringTok{"RotacExistenc"}\NormalTok{,}
+    \StringTok{"SolvencyTurnover"} \OtherTok{=} \StringTok{"RotacSolvencia"}\NormalTok{,}
+    \StringTok{"Liquidity\_Ratio"} \OtherTok{=} \StringTok{"Ratio.de.Liquidez"}\NormalTok{,}
+    \StringTok{"Leverage"} \OtherTok{=} \StringTok{"Apalancamiento"}\NormalTok{,}
+    \StringTok{"Profit\_per\_Employee"} \OtherTok{=} \StringTok{"Beneficio.por.empleado"}\NormalTok{,}
+    \StringTok{"Operating\_Revenue\_per\_Employee"} \OtherTok{=} \StringTok{"Ingresos.Explotación.por.empleado"}\NormalTok{,}
+    \StringTok{"Average\_Employee\_Cost"} \OtherTok{=} \StringTok{"Coste.medio.Empleados"}\NormalTok{,}
+    \StringTok{"Total\_Assets\_per\_Employee"} \OtherTok{=} \StringTok{"Total.acivos.por.empleado"}\NormalTok{,}
+    \StringTok{"Levera"} \OtherTok{=} \StringTok{"Apalancam"}\NormalTok{,}
+    \StringTok{"Profit\_Employee"} \OtherTok{=} \StringTok{"Benefic/empleado"}\NormalTok{,}
+    \StringTok{"OperatingRevenue\_Employee"} \OtherTok{=} \StringTok{"IngrExpl/empleado"}\NormalTok{,}
+    \StringTok{"Cost\_Employee"} \OtherTok{=} \StringTok{"Coste/empleado"}\NormalTok{,}
+    \StringTok{"Assets\_Employee"} \OtherTok{=} \StringTok{"Activos/empleado"}\NormalTok{,}
+    \StringTok{"Number\_of\_Board\_and\_Management\_Members"} \OtherTok{=} 
+      \StringTok{"Nümero.de.miembros.de.las.juntas.\&.gestión"}\NormalTok{,}
+    \StringTok{"Board\_Members"} \OtherTok{=} \StringTok{"MiembrosJuntas"}\NormalTok{,}
+    \StringTok{"DM\_Full\_Name"} \OtherTok{=} \StringTok{"DM.Nombre.completo"}\NormalTok{,}
+    \StringTok{"DM\_Job\_Title"} \OtherTok{=} \StringTok{"DM.Título.trabajo"}\NormalTok{,}
+    \StringTok{"Shareholder\_Direct\_Percentage"} \OtherTok{=} \StringTok{"Accionista.{-}.\%.directo"}\NormalTok{,}
+    \StringTok{"Shareholder\_Total\_Percentage"} \OtherTok{=} \StringTok{"Accionista.{-}.\%.total"}\NormalTok{,}
+    \StringTok{"CSH\_Direct\_Percentage"} \OtherTok{=} \StringTok{"CSH.{-}.\%.directo"}\NormalTok{,}
+    \StringTok{"DM\_Original\_Job\_Title"} \OtherTok{=} \StringTok{"DM.Título.original.trabajo"}\NormalTok{,}
+    \StringTok{"DM\_Board\_Committee\_or\_Executive\_Department"} \OtherTok{=} 
+      \StringTok{"DM.Junta,.comité.or.departamento.ejecutivo"}\NormalTok{,}
+    \StringTok{"DM\_Level\_of\_Responsibility"} \OtherTok{=} \StringTok{"DM.Nivel.de.responsabilidad"}\NormalTok{,}
+    \StringTok{"DM\_First\_Name"} \OtherTok{=} \StringTok{"DM.Nombre"}\NormalTok{,}
+    \StringTok{"DM\_Last\_Name"} \OtherTok{=} \StringTok{"DM.Apellido"}\NormalTok{,}
+    \StringTok{"DM\_Gender"} \OtherTok{=} \StringTok{"DM.Género"}\NormalTok{,}
+    \StringTok{"DM\_Nationality\_Country"} \OtherTok{=} \StringTok{"DM.País.de.nacionalidad"}\NormalTok{,}
+    \StringTok{"DM\_Also\_a\_Shareholder"} \OtherTok{=} \StringTok{"DM.También.un.accionista"}\NormalTok{,}
+    \StringTok{"DM\_Position\_Type"} \OtherTok{=} \StringTok{"DM.Tipo.de.posición"}\NormalTok{,}
+    \StringTok{"Number\_of\_Advisors"} \OtherTok{=} \StringTok{"Número.de.asesores"}\NormalTok{,}
+    \StringTok{"ADV\_First\_Name"} \OtherTok{=} \StringTok{"ADV.Nombre"}\NormalTok{,}
+    \StringTok{"ADV\_Last\_Name"} \OtherTok{=} \StringTok{"ADV.Apellido"}\NormalTok{,}
+    \StringTok{"ADV\_Gender"} \OtherTok{=} \StringTok{"ADV.Género"}\NormalTok{,}
+    \StringTok{"ADV\_Nationality\_Country"} \OtherTok{=} \StringTok{"ADV.País.de.nacionalidad"}\NormalTok{,}
+    \StringTok{"Nationality\_Country"} \OtherTok{=} \StringTok{"País.de.nacionalidad"}\NormalTok{,}
+    \StringTok{"Number\_of\_Employees"} \OtherTok{=} \StringTok{"Número.empleados"}\NormalTok{,}
+    \StringTok{"BvD\_Independence\_Indicator"} \OtherTok{=} \StringTok{"Indicador.independencia.BvD"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Coercion de datos}\label{coercion-de-datos}
+
+Las funciones de coerción en R son fundamentales para transformar los
+tipos de datos y garantizar que sean compatibles con los análisis o
+manipulaciones que se desean realizar. En este caso, se emplea la
+función parse\_number del paquete readr, que es especialmente útil para
+convertir valores almacenados como texto en datos numéricos. Esta
+función extrae automáticamente los componentes numéricos de una cadena
+de texto y los convierte en un tipo de dato numérico, parse\_number
+eliminará los caracteres no numéricos, como letras, símbolos o comas
+Este proceso es clave para trabajar con columnas que combinan datos
+numéricos y caracteres en un mismo campo, ya que permite su correcta
+utilización en operaciones matemáticas y estadísticas.
+
+Adicionalmente, se utiliza la función mutate del paquete dplyr, la cual
+es útil para modificar o crear nuevas columnas en un conjunto de datos.
+Dentro de mutate, se aplica parse\_number a las columnas seleccionadas
+para asegurar su transformación. Esto permite trabajar de forma
+eficiente con múltiples variables en un solo paso, sin necesidad de
+manipularlas de forma individual.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(DATA)}
+\FunctionTok{str}\NormalTok{(DATA)}
+\NormalTok{DATA\_Manipulada }\OtherTok{\textless{}{-}}\NormalTok{ DATA }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \CommentTok{\# Conversión de columnas a numérico}
+    \AttributeTok{Growth =} \FunctionTok{parse\_number}\NormalTok{(Growth, }
+                          \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Inflation =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Inflation, }
+                                \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Seniority =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Seniority, }
+                                \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Fixed\_Assets =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Fixed\_Assets, }
+                                   \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Current\_Assets =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Current\_Assets, }
+                                     \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Inventory =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Inventory, }
+                                \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Receivables =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Receivables, }
+                                  \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Other\_Assets =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Other\_Assets, }
+                                   \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Cash =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Cash, }\AttributeTok{locale =} 
+                             \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Total\_Assets =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Total\_Assets, }
+                                   \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Liquidity1 =} \FunctionTok{parse\_number}\NormalTok{(Liquidity1, }
+                              \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Liquidity1\_Dummy =} \FunctionTok{parse\_number}\NormalTok{(Liquidity1\_Dummy, }
+                                    \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Non\_Current\_Liabilities =}\NormalTok{ parse\_number}
+\NormalTok{    (Ln\_Non\_Current\_Liabilities, }
+      \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Current\_Liabilities =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Current\_Liabilities, }
+                                          \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Total\_Liabilities =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Total\_Liabilities, }
+                                        \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Ln\_Equity =} \FunctionTok{parse\_number}\NormalTok{(Ln\_Equity, }
+                             \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{ROE =} \FunctionTok{parse\_number}\NormalTok{(ROE, }\AttributeTok{locale =} 
+                         \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{ROA =} \FunctionTok{parse\_number}\NormalTok{(ROA, }
+                       \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Collection\_Period =} \FunctionTok{parse\_number}\NormalTok{(Collection\_Period, }
+                                     \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Credit\_Period =} \FunctionTok{parse\_number}\NormalTok{(Credit\_Period, }
+                                 \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{ROEE =} \FunctionTok{parse\_number}\NormalTok{(ROEE, }\AttributeTok{locale =} 
+                          \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{ROAA =} \FunctionTok{parse\_number}\NormalTok{(ROAA, }
+                        \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{CollectionPeriod =} \FunctionTok{parse\_number}\NormalTok{(CollectionPeriod, }
+                                    \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Payment\_Period =} \FunctionTok{parse\_number}\NormalTok{(Payment\_Period, }
+                                  \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{PMC\_PMP =} \FunctionTok{parse\_number}\NormalTok{(PMC\_PMP, }
+                           \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Net\_Asset\_Turnover =} \FunctionTok{parse\_number}\NormalTok{(Net\_Asset\_Turnover, }
+                                      \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Inventory\_Turnover =} \FunctionTok{parse\_number}\NormalTok{(Inventory\_Turnover, }
+                                      \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Solvency\_Turnover =} \FunctionTok{parse\_number}\NormalTok{(Solvency\_Turnover, }
+                                     \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Asset\_Turnover =} \FunctionTok{parse\_number}\NormalTok{(Asset\_Turnover, }
+                                  \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{InventoryTurnover =} \FunctionTok{parse\_number}\NormalTok{(InventoryTurnover, }
+                                     \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{SolvencyTurnover =} \FunctionTok{parse\_number}\NormalTok{(SolvencyTurnover, }
+                                    \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Liquidity\_Ratio =} \FunctionTok{parse\_number}\NormalTok{(Liquidity\_Ratio, }
+                                   \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Leverage =} \FunctionTok{parse\_number}\NormalTok{(Leverage, }\AttributeTok{locale =} 
+                              \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Profit\_per\_Employee =} \FunctionTok{parse\_number}\NormalTok{(Profit\_per\_Employee, }
+                                       \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Operating\_Revenue\_per\_Employee =}\NormalTok{ parse\_number}
+\NormalTok{    (Operating\_Revenue\_per\_Employee, }\AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Levera =} \FunctionTok{parse\_number}\NormalTok{(Levera, }
+                          \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Profit\_Employee =} \FunctionTok{parse\_number}\NormalTok{(Profit\_Employee, }
+                                   \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{OperatingRevenue\_Employee =}\NormalTok{ parse\_number}
+\NormalTok{    (OperatingRevenue\_Employee, }\AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Shareholder\_Direct\_Percentage =}\NormalTok{ parse\_number}
+\NormalTok{    (Shareholder\_Direct\_Percentage, }\AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{Shareholder\_Total\_Percentage =}\NormalTok{ parse\_number}
+\NormalTok{    (Shareholder\_Total\_Percentage, }\AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+    \AttributeTok{CSH\_Direct\_Percentage =} \FunctionTok{parse\_number}\NormalTok{(CSH\_Direct\_Percentage, }
+                                         \AttributeTok{locale =} \FunctionTok{locale}\NormalTok{(}\AttributeTok{decimal\_mark =} \StringTok{"."}\NormalTok{)),}
+ 
+    \CommentTok{\# Conversión de columnas a Date }
+    \AttributeTok{Incorporation\_Date =} \FunctionTok{as.Date}\NormalTok{(Incorporation\_Date, }\AttributeTok{origin =} \StringTok{"1899{-}12{-}30"}\NormalTok{),}
+    \AttributeTok{End\_Date =} \FunctionTok{as.Date}\NormalTok{(End\_Date, }\AttributeTok{origin =} \StringTok{"1899{-}12{-}30"}\NormalTok{),}
+
+   \CommentTok{\# Conversión de columnas a character}
+    \AttributeTok{Country =} \FunctionTok{as.character}\NormalTok{(Country),}
+    \AttributeTok{Identity =} \FunctionTok{as.character}\NormalTok{(Identity),}
+    \AttributeTok{Legal\_Form =} \FunctionTok{as.character}\NormalTok{(Legal\_Form),}
+    \AttributeTok{Legal\_Form\_Tabul =} \FunctionTok{as.character}\NormalTok{(Legal\_Form\_Tabul),}
+   
+   \CommentTok{\#Conversion de columnas a factor}
+    \AttributeTok{ADV\_Gender=} \FunctionTok{parse\_factor}\NormalTok{(ADV\_Gender,}
+                             \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"M"}\NormalTok{,}\StringTok{"F"}\NormalTok{,}\StringTok{"M}\SpecialCharTok{\textbackslash{}n}\StringTok{M"}\NormalTok{,}\StringTok{"M}\SpecialCharTok{\textbackslash{}n}\StringTok{M}\SpecialCharTok{\textbackslash{}n}\StringTok{M"}\NormalTok{,}\StringTok{"M}\SpecialCharTok{\textbackslash{}n}\StringTok{F"}\NormalTok{),}
+                             \AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{BvD\_Independence\_Indicator=} \FunctionTok{parse\_factor}\NormalTok{(BvD\_Independence\_Indicator,}
+                                             \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"A+"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"A{-}"}\NormalTok{, }
+                                                        \StringTok{"B+"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B{-}"}\NormalTok{, }\StringTok{"C+"}\NormalTok{,}
+                                                        \StringTok{"C"}\NormalTok{, }\StringTok{"C{-}"}\NormalTok{, }\StringTok{"D"}\NormalTok{, }\StringTok{"U"}\NormalTok{),}
+                                             \AttributeTok{ordered =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{Standard\_Legal\_Form =} \FunctionTok{parse\_factor}\NormalTok{(Standard\_Legal\_Form,}
+                                       \AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Public limited companies"}\NormalTok{, }
+                                                  \StringTok{"Private limited companies"}\NormalTok{, }
+                                                  \StringTok{"Partnerships"}\NormalTok{, }
+                                                  \StringTok{"Other legal forms"}\NormalTok{),}
+                                       \AttributeTok{ordered =} \ConstantTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Descripción de las
+variables}\label{descripciuxf3n-de-las-variables}
+
+\subsection{Tabla 1}\label{tabla-1}
+
+Esta investigación se ha centrado en examinar los factores que
+determinan, en mayor medida, la rentabilidad de las empresas que operan
+en el sector de piedras naturales. Para el estudio del rendimiento de
+las empresas, las variables más comúnmente utilizadas son ROA
+(rentabilidad sobre activos---rentabilidad económica) y ROE
+(rentabilidad sobre el capital---rentabilidad financiera), debido a su
+capacidad para medir las inversiones en términos de activos y
+patrimonio. Investigaciones previas han utilizado ROA y ROE como
+variables dependientes. Por lo tanto, en los dos análisis empíricos
+implementados en este estudio, ROA y ROE fueron consideradas como
+variables dependientes. Ambas son variables cuantitativas continuas. Las
+variables explicativas bajo análisis pueden agruparse en tres categorías
+distintas:
+
+\begin{itemize}
+\item
+  Variables asociadas a la empresa, como la edad de la empresa en el
+  mercado, así como variables financieras como el volumen de activos,
+  apalancamiento, ingreso operativo total, rotación de existencias,
+  rotación de activos, periodo promedio de cobro, periodo promedio de
+  pago, crecimiento de la empresa, y la forma jurídica.
+\item
+  Variables asociadas al entorno económico, como el país, el producto
+  interno bruto (PIB), y el nivel de inflación.
+\item
+  Variables vinculadas a la diversidad en la gestión empresarial,
+  identificada en esta investigación por la variable de género.
+\end{itemize}
+
+Las siguientes variables independientes fueron consideradas en el
+estudio: tamaño de la empresa, medido por el volumen de activos; el
+grado de apalancamiento; el crecimiento de la empresa; el cambio en el
+PIB del país; la inflación; y el porcentaje de directores de la junta
+femenina. Finalmente, las siguientes variables fueron utilizadas como
+variables de control: ingreso operativo, rotación de existencias,
+rotación de activos, periodos promedio de cobro y pago, edad de la
+empresa, y forma jurídica.
+
+\begin{verbatim}
+Rentabilidad financiera (ROE)
+\end{verbatim}
+
+El indicador ROE expresa la capacidad de una empresa para generar
+ganancias a través de un uso productivo de las contribuciones de los
+accionistas y una gestión eficiente. Se calcula como la relación entre
+el beneficio neto después de impuestos y el patrimonio de los
+accionistas. 3.2.2. Rentabilidad económica (ROA) ROA se define como el
+beneficio neto después de impuestos dividido por el total de los
+activos, y también ha sido ampliamente utilizado en la literatura.
+
+\begin{verbatim}
+Tamaño de la empresa
+\end{verbatim}
+
+El tamaño de la empresa es considerado un factor importante al explicar
+la rentabilidad. La teoría sugiere que las empresas más grandes tienen
+mayor acceso a los mercados financieros y obtienen mejores tasas de
+interés al explotar las economías de escala. Según algunos estudios, el
+tamaño de la empresa tiene un efecto positivo y significativo sobre la
+rentabilidad.
+
+\begin{verbatim}
+Endeudamiento
+\end{verbatim}
+
+El endeudamiento es uno de los factores más críticos al analizar el
+rendimiento corporativo. El ratio de deuda se define como el total de
+deudas de una empresa dividido por sus activos totales. Los resultados
+de investigaciones anteriores generalmente encuentran una relación
+inversa entre el nivel de endeudamiento de una empresa y su
+rentabilidad.
+
+\begin{verbatim}
+Crecimiento
+\end{verbatim}
+
+Algunas investigaciones previas utilizaron el crecimiento de la empresa
+como el cambio porcentual en los ingresos operativos. Sin embargo, como
+en este estudio, otros investigadores consideran el crecimiento como el
+cambio porcentual en los activos totales, mostrando una relación
+positiva y significativa entre el cambio porcentual en los activos y la
+rentabilidad de la empresa.
+
+\begin{verbatim}
+Variación del PIB
+\end{verbatim}
+
+El PIB es uno de los indicadores más utilizados para medir la actividad
+económica dentro de un país. El crecimiento económico refleja las
+condiciones macroeconómicas generales. Se presume que un cambio en el
+PIB puede influir en el rendimiento de las empresas, con una relación
+positiva esperada entre la variación del PIB y la rentabilidad.
+
+\begin{verbatim}
+Inflación
+\end{verbatim}
+
+El índice de inflación es otro indicador macroeconómico comúnmente
+utilizado en estudios de rentabilidad. El efecto de la inflación en la
+rentabilidad de una empresa depende de si la inflación es anticipada o
+no. Se espera que haya una relación negativa entre la inflación no
+anticipada y la rentabilidad de las empresas.
+
+\begin{verbatim}
+Género
+\end{verbatim}
+
+Muchos estudios han analizado la influencia de la diversidad de género
+en las juntas directivas sobre la rentabilidad de las empresas,
+encontrando que una mayor presencia femenina tiene una influencia
+positiva en la rentabilidad.
+
+\begin{verbatim}
+Ingreso operativo
+\end{verbatim}
+
+El ingreso operativo de una empresa es considerado un indicador clave de
+muchos aspectos positivos que apoyan tanto el crecimiento como la
+rentabilidad. Este estudio utiliza el logaritmo natural del ingreso
+operativo para determinar su relación con la rentabilidad de la empresa.
+
+\begin{verbatim}
+Rotación de existencias
+\end{verbatim}
+
+El ratio de rotación de existencias es una medida importante para
+evaluar la eficiencia de la gestión de inventarios. Una alta rotación de
+existencias generalmente indica una gestión eficiente. Se espera que
+esta relación sea positiva con la rentabilidad.
+
+\begin{verbatim}
+Rotación de activos
+\end{verbatim}
+
+La rotación de activos mide la eficiencia de una empresa en el uso de
+sus activos para generar ingresos operativos. Los resultados previos
+muestran resultados mixtos, con algunos estudios que indican que la
+rotación de activos tiene un impacto positivo en la rentabilidad.
+
+\begin{verbatim}
+Periodo promedio de cobro
+\end{verbatim}
+
+El periodo promedio de cobro representa el número promedio de días que
+una empresa tarda en cobrar después de una venta a crédito. En algunos
+estudios, se encuentra que existe una relación positiva significativa
+entre el periodo promedio de cobro y la rentabilidad, mientras que otros
+autores encuentran una relación negativa.
+
+\begin{verbatim}
+Periodo promedio de pago
+\end{verbatim}
+
+Este indicador muestra el número promedio de días que una empresa tarda
+en pagar sus deudas a corto plazo. Estudios empíricos han encontrado una
+relación negativa entre el periodo promedio de pago y la rentabilidad de
+la empresa.
+
+\begin{verbatim}
+Edad
+\end{verbatim}
+
+La edad de la empresa, definida como el número de años que ha estado en
+el mercado, tiene una relación compleja con la rentabilidad. Mientras
+que algunos estudios encuentran una relación positiva significativa,
+otros argumentan que la edad tiene un efecto negativo sobre la
+rentabilidad.
+
+\begin{verbatim}
+Forma jurídica
+\end{verbatim}
+
+La forma jurídica ha sido utilizada para analizar la rentabilidad,
+particularmente en empresas de responsabilidad limitada. Sin embargo,
+algunos estudios no han encontrado una relación significativa entre la
+forma jurídica y la rentabilidad.
+
+\begin{verbatim}
+País
+\end{verbatim}
+
+El país en el que se ubica la empresa puede influir significativamente
+en su rentabilidad, ya que las condiciones económicas y regulatorias
+varían según la región.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tibble)}
+
+\CommentTok{\# Crear la tabla de variables con saltos de línea}
+\NormalTok{tabla\_esp }\OtherTok{\textless{}{-}}\NormalTok{ tibble}\SpecialCharTok{::}\FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{Abreviatura =} \FunctionTok{c}\NormalTok{(}\StringTok{"ROE"}\NormalTok{, }\StringTok{"ROA"}\NormalTok{, }\StringTok{"Size"}\NormalTok{, }\StringTok{"Debt"}\NormalTok{, }\StringTok{"Growth"}\NormalTok{, }\StringTok{"VarGDP"}\NormalTok{, }\StringTok{"Inflat"}\NormalTok{, }
+                   \StringTok{"Gender"}\NormalTok{, }\StringTok{"OpInc"}\NormalTok{, }\StringTok{"StockT"}\NormalTok{, }\StringTok{"AssetT"}\NormalTok{, }\StringTok{"ARP"}\NormalTok{, }\StringTok{"APP"}\NormalTok{, }
+                   \StringTok{"Age"}\NormalTok{, }\StringTok{"LForm"}\NormalTok{, }\StringTok{"Country"}\NormalTok{),}
+  \AttributeTok{Variable =} \FunctionTok{c}\NormalTok{(}\StringTok{"Retorno sobre el patrimonio"}\NormalTok{, }\StringTok{"Retorno sobre los activos"}\NormalTok{,}
+               \StringTok{"Tamaño de la empresa"}\NormalTok{, }\StringTok{"Endeudamiento"}\NormalTok{, }
+               \StringTok{"Crecimiento de la empresa"}\NormalTok{, }\StringTok{"Cambio en el PIB"}\NormalTok{, }
+               \StringTok{"Inflación del país"}\NormalTok{, }\StringTok{"Diversidad de género"}\NormalTok{,}
+               \StringTok{"Ingreso operativo"}\NormalTok{, }\StringTok{"Rotación del inventario"}\NormalTok{,}
+               \StringTok{"Rotación de activos"}\NormalTok{, }\StringTok{"Período promedio de cobro"}\NormalTok{,}
+               \StringTok{"Período promedio de pago"}\NormalTok{, }\StringTok{"Edad de la empresa"}\NormalTok{,}
+               \StringTok{"Forma jurídica"}\NormalTok{, }\StringTok{"País de residencia de la empresa"}\NormalTok{),}
+\NormalTok{  Definición }\OtherTok{=} \FunctionTok{c}\NormalTok{(}
+    \StringTok{"Beneficio neto dividido por el patrimonio"}\NormalTok{, }
+    \StringTok{"Beneficio neto dividido por los activos totales"}\NormalTok{, }
+    \StringTok{"Logaritmo natural del total de activos de la empresa"}\NormalTok{, }
+    \StringTok{"Pasivos totales divididos por los activos totales"}\NormalTok{, }
+    \StringTok{"Porcentaje de cambio en los activos totales"}\NormalTok{, }
+    \StringTok{"Porcentaje de cambio en el PIB"}\NormalTok{, }
+    \StringTok{"Inflación del país en el año"}\NormalTok{, }
+    \StringTok{"Porcentaje de mujeres en el consejo de administración"}\NormalTok{, }
+    \StringTok{"Logaritmo natural del ingreso operativo"}\NormalTok{, }
+    \StringTok{"Costo de ventas dividido por inventario"}\NormalTok{, }
+    \StringTok{"Ingreso operativo dividido por activos totales"}\NormalTok{, }
+    \StringTok{"Promedio de días que la empresa tarda en recibir pagos"}\NormalTok{, }
+    \StringTok{"Promedio de días que la empresa tarda en pagar a proveedores"}\NormalTok{, }
+    \StringTok{"Edad de la empresa en años"}\NormalTok{, }
+    \StringTok{"La forma jurídica de la empresa: Sociedad anónima, }
+\StringTok{    Sociedad limitada, Cooperativa, Otras formas legales"}\NormalTok{,}
+    \StringTok{"Variable igual a 1 para España y 0 para Italia"}
+\NormalTok{  )}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear la tabla en gt()}
+\NormalTok{tabla\_esp }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gt}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_header}\NormalTok{(}
+    \AttributeTok{title =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Tabla 1. Definición de variables (Español)**"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_label}\NormalTok{(}
+    \AttributeTok{Abreviatura =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Abreviatura**"}\NormalTok{),}
+    \AttributeTok{Variable =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Variable**"}\NormalTok{),}
+\NormalTok{    Definición }\OtherTok{=} \FunctionTok{md}\NormalTok{(}\StringTok{"**Definición**"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_width}\NormalTok{(}
+\NormalTok{    Definición }\SpecialCharTok{\textasciitilde{}} \FunctionTok{px}\NormalTok{(}\DecValTok{300}\NormalTok{)  }\CommentTok{\# Ajusta el ancho de la columna Definición}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_options}\NormalTok{(}
+    \AttributeTok{column\_labels.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{12}\NormalTok{),}
+    \AttributeTok{table.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{12}\NormalTok{),}
+    \AttributeTok{data\_row.padding =} \FunctionTok{px}\NormalTok{(}\DecValTok{5}\NormalTok{),}
+    \AttributeTok{row.striping.include\_table\_body =} \ConstantTok{TRUE}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_style}\NormalTok{(}
+    \AttributeTok{style =} \FunctionTok{list}\NormalTok{(}
+      \FunctionTok{cell\_text}\NormalTok{(}\AttributeTok{align =} \StringTok{"center"}\NormalTok{)  }
+\NormalTok{    ),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"title"}\NormalTok{)  }
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\caption*{
+{\large \textbf{Tabla 1. Definición de variables (Español)}}
+} 
+\fontsize{9.0pt}{10.8pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ll>{\raggedright\arraybackslash}p{\dimexpr 225.00pt -2\tabcolsep-1.5\arrayrulewidth}}
+\toprule
+\textbf{Abreviatura} & \textbf{Variable} & \textbf{Definición} \\ 
+\midrule\addlinespace[2.5pt]
+ROE & Retorno sobre el patrimonio & Beneficio neto dividido por el patrimonio \\ 
+ROA & Retorno sobre los activos & Beneficio neto dividido por los activos totales \\ 
+Size & Tamaño de la empresa & Logaritmo natural del total de activos de la empresa \\ 
+Debt & Endeudamiento & Pasivos totales divididos por los activos totales \\ 
+Growth & Crecimiento de la empresa & Porcentaje de cambio en los activos totales \\ 
+VarGDP & Cambio en el PIB & Porcentaje de cambio en el PIB \\ 
+Inflat & Inflación del país & Inflación del país en el año \\ 
+Gender & Diversidad de género & Porcentaje de mujeres en el consejo de administración \\ 
+OpInc & Ingreso operativo & Logaritmo natural del ingreso operativo \\ 
+StockT & Rotación del inventario & Costo de ventas dividido por inventario \\ 
+AssetT & Rotación de activos & Ingreso operativo dividido por activos totales \\ 
+ARP & Período promedio de cobro & Promedio de días que la empresa tarda en recibir pagos \\ 
+APP & Período promedio de pago & Promedio de días que la empresa tarda en pagar a proveedores \\ 
+Age & Edad de la empresa & Edad de la empresa en años \\ 
+LForm & Forma jurídica & La forma jurídica de la empresa: Sociedad anónima, 
+    Sociedad limitada, Cooperativa, Otras formas legales \\ 
+Country & País de residencia de la empresa & Variable igual a 1 para España y 0 para Italia \\ 
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\textbf{Creacion de varables faltantes}
+
+En esta sección, se calculan nuevas variables derivadas a partir de los
+datos existentes en el conjunto DATA\_Manipulada. Estas transformaciones
+tienen como objetivo enriquecer el análisis mediante indicadores
+adicionales que permiten evaluar distintos aspectos financieros y
+operativos de las entidades analizadas. Entre los cálculos realizados,
+se incluyen:
+
+\begin{verbatim}
+  ·Debt (Endeudamiento):Total de pasivos dividido por el total de activos 
+      - Debt = Total_Liabilities / Total_Assets
+  ·Oplnc    : Logaritmo natural de los ingresos de explotación 
+      - OpInc= log(Operating_Revenue)
+  ·StockT(Rotación de inventarios): Ingresos de explotación dividido 
+  por el inventario
+      - AssetT = Operating_Revenue / Total_Assets 
+  ·AssetT   (Rotación de activos): Ingresos de explotación dividido
+  por el inventario
+      - StockT = Operating_Revenue / Inventory
+  ·Age(Antigüedad) :Edad de la empresa en años
+      - Age = Seniority / 365 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DATA\_Manipulada}\OtherTok{\textless{}{-}}\NormalTok{ DATA\_Manipulada }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Debt =}\NormalTok{ Total\_Liabilities }\SpecialCharTok{/}\NormalTok{ Total\_Assets,}
+         \AttributeTok{OpInc=} \FunctionTok{log}\NormalTok{(Operating\_Revenue),}
+         \AttributeTok{AssetT =}\NormalTok{ Operating\_Revenue }\SpecialCharTok{/}\NormalTok{ Total\_Assets ,}
+         \AttributeTok{StockT =}\NormalTok{ Operating\_Revenue }\SpecialCharTok{/}\NormalTok{ Inventory,}
+         \AttributeTok{Age =}\NormalTok{ Seniority }\SpecialCharTok{/} \DecValTok{365}\NormalTok{ )}
+
+
+\CommentTok{\#selección de variables(existentes en la DATA) a utilizar para la Tabla 1}
+\NormalTok{DATAM\_SELECT }\OtherTok{\textless{}{-}}\NormalTok{ DATA\_Manipulada }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ROE, ROA, Ln\_Total\_Assets,Debt, Growth, GDP\_Var, Inflation, Gender, }
+\NormalTok{         OpInc,StockT, AssetT, CollectionPeriod, }
+\NormalTok{         Payment\_Period, Age, Legal\_Form, Country) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}
+    \AttributeTok{Size =}\NormalTok{ Ln\_Total\_Assets,}
+    \AttributeTok{VarGDP =}\NormalTok{ GDP\_Var,}
+    \AttributeTok{Inflat =}\NormalTok{ Inflation,}
+    \AttributeTok{ARP =}\NormalTok{ CollectionPeriod,}
+    \AttributeTok{APP =}\NormalTok{ Payment\_Period,}
+    \AttributeTok{LForm =}\NormalTok{ Legal\_Form) }
+
+
+\CommentTok{\#aplica a todas las columnas numéricas, redondeando los valores a dos decimales.}
+\NormalTok{DATA\_SELECT }\OtherTok{\textless{}{-}}\NormalTok{ DATAM\_SELECT }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{round}\NormalTok{(.x, }\DecValTok{2}\NormalTok{))) }
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{SubDataset}
+
+Para facilitar el análisis comparativo, se procedió a dividir el
+conjunto de datos principal (DATA\_SELECT) en tres subconjuntos, basados
+en la variable Country, que identifica la procedencia de las
+observaciones:
+
+\begin{itemize}
+\tightlist
+\item
+  GENERAL: Incluye todas las observaciones del conjunto original,
+  excluyendo las variables Country y LForm, ya que no son necesarias
+  para este análisis en particular. Este subconjunto representa una
+  visión global del dataset.
+\item
+  ESPAÑA: Contiene únicamente las observaciones donde el valor de
+  Country es ``1'', correspondiente a España. Además, se eliminan las
+  columnas Country y LForm, manteniendo únicamente las variables
+  relevantes para el análisis específico de este país.
+\item
+  ITALIA: Comprende las observaciones donde el valor de Country es
+  ``0'', correspondiente a Italia, siguiendo el mismo criterio de
+  selección y limpieza aplicado en el subconjunto de España.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#FILTAR OBSERVACION SEGUN EL PAIS}
+\NormalTok{OB\_ES}\OtherTok{\textless{}{-}}\NormalTok{DATA\_SELECT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Country}\SpecialCharTok{==}\StringTok{"1"}\NormalTok{) }\CommentTok{\#ESPAÑA}
+\NormalTok{OB\_IT}\OtherTok{\textless{}{-}}\NormalTok{DATA\_SELECT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Country}\SpecialCharTok{==}\StringTok{"0"}\NormalTok{) }\CommentTok{\#ITALIA}
+
+\NormalTok{GENERAL }\OtherTok{\textless{}{-}}\NormalTok{ DATA\_SELECT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{ (}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{ (Country, LForm))}
+\NormalTok{ESPAÑA }\OtherTok{\textless{}{-}}\NormalTok{OB\_ES }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{ (}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{ (Country, LForm)) }
+\NormalTok{ITALIA}\OtherTok{\textless{}{-}}\NormalTok{ OB\_IT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{ (}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{ (Country, LForm))}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Estadísticas descriptivas y
+correlaciones}\label{estaduxedsticas-descriptivas-y-correlaciones}
+
+\subsection{Tabla 2}\label{tabla-2}
+
+La Tabla 2 presenta las principales estadísticas descriptivas de las
+variables utilizadas para explicar la rentabilidad de las empresas que
+operan en el sector de la piedra natural en España e Italia durante el
+período 2015-2019. Los datos se presentan tanto para la muestra total
+como para cada submuestra según el país donde se ubica la empresa.
+Además, se incluye la prueba de medias, la cual muestra diferencias
+significativas entre ambos países.
+
+Para empezar se reemplazan los valores infinitos por NA para evitar
+sesgos en los cálculos. Posteriormente, se generan resúmenes
+estadísticos que incluyen la media, desviación estándar, valores mínimos
+y máximos de cada variable. Esto permite obtener una visión clara de las
+principales características de los datos en cada conjunto. Finalmente,
+las tablas son unidas en diferentes combinaciones para su análisis
+comparativo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{G }\OtherTok{\textless{}{-}}\NormalTok{ GENERAL }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.infinite}\NormalTok{(.), }\ConstantTok{NA}\NormalTok{, .)))}
+\NormalTok{RE\_G}\OtherTok{\textless{}{-}}\NormalTok{ G }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{get\_summary\_stats}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(variable, mean, sd, min, max)}
+
+
+\NormalTok{E }\OtherTok{\textless{}{-}}\NormalTok{ ESPAÑA }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.infinite}\NormalTok{(.), }\ConstantTok{NA}\NormalTok{, .)))}
+\NormalTok{RE\_E }\OtherTok{\textless{}{-}}\NormalTok{ E }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{get\_summary\_stats}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(variable, mean, sd, min, max)}
+
+\NormalTok{I }\OtherTok{\textless{}{-}}\NormalTok{ ITALIA }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.infinite}\NormalTok{(.), }\ConstantTok{NA}\NormalTok{, .)))}
+\NormalTok{RE\_I}\OtherTok{\textless{}{-}}\NormalTok{ I }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{get\_summary\_stats}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(variable, mean, sd, min, max)}
+
+\NormalTok{RE\_UNIDO\_E\_I }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(RE\_E, RE\_I, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{)}
+
+\NormalTok{RE\_UNIDO }\OtherTok{\textless{}{-}}\NormalTok{ RE\_G }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(RE\_E, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(RE\_I, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{) }
+
+\NormalTok{RE\_UNIDO }\OtherTok{\textless{}{-}}\NormalTok{ RE\_G }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(RE\_E, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(RE\_I, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+se calcula el valor p (p-value) para cada variable mediante una prueba t
+de Student, comparando las muestras de España e Italia. Esto permite
+evaluar si existen diferencias estadísticamente significativas entre las
+dos poblaciones para cada variable. Además, se agrega una columna de
+significancia con asteriscos que identifican el nivel de significancia
+(p \textless{} 0.10, p \textless{} 0.05, p \textless{} 0.01). Esto
+facilita la interpretación de los resultados en términos de relevancia
+estadística.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcular p{-}value para cada variable}
+\NormalTok{p\_values }\OtherTok{\textless{}{-}} \FunctionTok{map\_dfr}\NormalTok{(RE\_E}\SpecialCharTok{$}\NormalTok{variable, }\SpecialCharTok{\textasciitilde{}}\NormalTok{ \{}
+\NormalTok{  var }\OtherTok{\textless{}{-}}\NormalTok{ .x}
+\NormalTok{  t\_test }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(E[[var]], I[[var]], }\AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{)}
+  \FunctionTok{tibble}\NormalTok{(}\AttributeTok{variable =}\NormalTok{ var, }\AttributeTok{p\_value =} \FunctionTok{round}\NormalTok{(t\_test}\SpecialCharTok{$}\NormalTok{p.value, }\DecValTok{2}\NormalTok{))  }
+\NormalTok{\})}
+\CommentTok{\# Agregar una columna de significancia con asteriscos}
+\NormalTok{p\_values }\OtherTok{\textless{}{-}} \FunctionTok{map\_dfr}\NormalTok{(RE\_E}\SpecialCharTok{$}\NormalTok{variable, }\SpecialCharTok{\textasciitilde{}}\NormalTok{ \{}
+\NormalTok{  var }\OtherTok{\textless{}{-}}\NormalTok{ .x}
+\NormalTok{  t\_test }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(E[[var]], I[[var]], }\AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  p\_value }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(t\_test}\SpecialCharTok{$}\NormalTok{p.value, }\DecValTok{4}\NormalTok{)}
+  
+  \FunctionTok{tibble}\NormalTok{(}
+    \AttributeTok{variable =}\NormalTok{ var,}
+    \AttributeTok{p\_value =} \FunctionTok{paste0}\NormalTok{(}
+      \FunctionTok{format}\NormalTok{(p\_value, }\AttributeTok{nsmall =} \DecValTok{4}\NormalTok{, }\AttributeTok{scientific =} \ConstantTok{FALSE}\NormalTok{),  }
+      \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{        p\_value }\SpecialCharTok{\textless{}} \FloatTok{0.01} \SpecialCharTok{\textasciitilde{}} \StringTok{"***"}\NormalTok{,}
+\NormalTok{        p\_value }\SpecialCharTok{\textless{}} \FloatTok{0.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"**"}\NormalTok{,}
+\NormalTok{        p\_value }\SpecialCharTok{\textless{}} \FloatTok{0.10} \SpecialCharTok{\textasciitilde{}} \StringTok{"*"}\NormalTok{,}
+        \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{""}
+\NormalTok{      )}
+\NormalTok{    )}
+\NormalTok{  )}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+se combinan los resúmenes estadísticos de España e Italia en una sola
+tabla, añadiendo los valores p obtenidos previamente. Luego, esta tabla
+es fusionada con las estadísticas descriptivas del conjunto general. El
+objetivo es consolidar toda la información en una única tabla que
+permita comparar fácilmente las estadísticas generales, españolas e
+italianas, junto con los resultados de las pruebas de diferencias de
+medias.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Combinar las estadísticas descriptivas de España e Italia}
+\NormalTok{spain\_italy\_table }\OtherTok{\textless{}{-}}\NormalTok{ RE\_E }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(RE\_I, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{, }\AttributeTok{suffix =} \FunctionTok{c}\NormalTok{(}\StringTok{"\_spain"}\NormalTok{, }\StringTok{"\_italy"}\NormalTok{))}
+
+\CommentTok{\# Agregar los p{-}values a la tabla combinada de España e Italia}
+\NormalTok{spain\_italy\_table }\OtherTok{\textless{}{-}}\NormalTok{ spain\_italy\_table }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(p\_values, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{)}
+
+\CommentTok{\# Combinar la tabla general (RE\_G) con la tabla de España e Italia}
+\NormalTok{tabla\_2 }\OtherTok{\textless{}{-}}\NormalTok{ RE\_G }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(spain\_italy\_table, }\AttributeTok{by =} \StringTok{"variable"}\NormalTok{, }\AttributeTok{suffix =} \FunctionTok{c}\NormalTok{(}\StringTok{"\_total"}\NormalTok{, }\StringTok{""}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Finalmente, en esta sección, se formatea la tabla combinada utilizando
+la librería gt para generar una presentación clara y profesional. Se
+ajustan los números a cuatro decimales, se renombran las columnas para
+mayor claridad y se agrupan las estadísticas bajo encabezados
+representativos (``Total Sample'', ``Spain'', ``Italy''). Asimismo, se
+agrega un encabezado para la tabla, resaltando que se trata de
+estadísticas descriptivas y pruebas de diferencias de medias por país.
+Este formato facilita la interpretación visual de los resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Formatear la tabla con gt()}
+\NormalTok{tabla\_2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gt}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{fmt\_number}\NormalTok{(}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(mean, sd, min, max,}
+\NormalTok{                mean\_spain, sd\_spain, min\_spain, max\_spain,}
+\NormalTok{                mean\_italy, sd\_italy, min\_italy, max\_italy),}
+    \AttributeTok{decimals =} \DecValTok{2}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{cols\_label}\NormalTok{(}
+  \AttributeTok{variable =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Variable**"}\NormalTok{),}
+  \AttributeTok{mean =} \FunctionTok{md}\NormalTok{(}\StringTok{"**M**"}\NormalTok{),}
+  \AttributeTok{sd =} \FunctionTok{md}\NormalTok{(}\StringTok{"**SD**"}\NormalTok{),}
+  \AttributeTok{min =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Min**"}\NormalTok{),}
+  \AttributeTok{max =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Max**"}\NormalTok{),}
+  \AttributeTok{mean\_spain =} \FunctionTok{md}\NormalTok{(}\StringTok{"**M**"}\NormalTok{),}
+  \AttributeTok{sd\_spain =} \FunctionTok{md}\NormalTok{(}\StringTok{"**SD**"}\NormalTok{),}
+  \AttributeTok{min\_spain =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Min**"}\NormalTok{),}
+  \AttributeTok{max\_spain =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Max**"}\NormalTok{),}
+  \AttributeTok{mean\_italy =} \FunctionTok{md}\NormalTok{(}\StringTok{"**M**"}\NormalTok{),}
+  \AttributeTok{sd\_italy =} \FunctionTok{md}\NormalTok{(}\StringTok{"**SD**"}\NormalTok{),}
+  \AttributeTok{min\_italy =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Min**"}\NormalTok{),}
+  \AttributeTok{max\_italy =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Max**"}\NormalTok{),}
+  \AttributeTok{p\_value =} \FunctionTok{md}\NormalTok{(}\StringTok{"**valor p**"}\NormalTok{)}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_spanner}\NormalTok{(}
+    \AttributeTok{label =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Muestra Total**"}\NormalTok{),}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(mean, sd, min, max)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_spanner}\NormalTok{(}
+    \AttributeTok{label =} \FunctionTok{md}\NormalTok{(}\StringTok{"**España**"}\NormalTok{),}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(mean\_spain, sd\_spain, min\_spain, max\_spain)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_spanner}\NormalTok{(}
+    \AttributeTok{label =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Italia**"}\NormalTok{),}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(mean\_italy, sd\_italy, min\_italy, max\_italy)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_header}\NormalTok{(}
+    \AttributeTok{title =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Tabla 2. Estadísticas descriptivas y prueba de }
+\StringTok{               diferencia de medias por país**"}\NormalTok{)}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_options}\NormalTok{(}
+    \AttributeTok{column\_labels.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{7}\NormalTok{), }\CommentTok{\# Tamaño del texto de encabezado}
+    \AttributeTok{table.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{7}\NormalTok{) }\CommentTok{\# Tamaño del texto en la tabla}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_style}\NormalTok{(}
+    \AttributeTok{style =} \FunctionTok{list}\NormalTok{(}
+      \FunctionTok{cell\_text}\NormalTok{(}\AttributeTok{align =} \StringTok{"center"}\NormalTok{)  }
+\NormalTok{    ),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"title"}\NormalTok{) }
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\caption*{
+{\large \textbf{Tabla 2. Estadísticas descriptivas y prueba de
+diferencia de medias por país}}
+} 
+\fontsize{5.2pt}{6.3pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}crrrrrrrrrrrrr}
+\toprule
+ & \multicolumn{4}{c}{\textbf{Muestra Total}} & \multicolumn{4}{c}{\textbf{España}} & \multicolumn{4}{c}{\textbf{Italia}} &  \\ 
+\cmidrule(lr){2-5} \cmidrule(lr){6-9} \cmidrule(lr){10-13}
+\textbf{Variable} & \textbf{M} & \textbf{SD} & \textbf{Min} & \textbf{Max} & \textbf{M} & \textbf{SD} & \textbf{Min} & \textbf{Max} & \textbf{M} & \textbf{SD} & \textbf{Min} & \textbf{Max} & \textbf{valor p} \\ 
+\midrule\addlinespace[2.5pt]
+ROE & 4.86 & 50.63 & -973.58 & 169.28 & 2.81 & 55.56 & -920.19 & 164.48 & 6.47 & 46.38 & -973.58 & 169.28 & 0.0992* \\ 
+ROA & 2.99 & 8.33 & -79.25 & 65.44 & 2.96 & 8.79 & -79.25 & 65.44 & 3.02 & 7.95 & -65.89 & 46.23 & 0.8717 \\ 
+Size & 8.25 & 1.10 & 1.10 & 12.63 & 8.25 & 1.26 & 1.10 & 12.63 & 8.25 & 0.95 & 2.75 & 12.26 & 0.9788 \\ 
+Debt & 0.54 & 0.31 & 0.00 & 2.59 & 0.44 & 0.30 & 0.00 & 1.86 & 0.61 & 0.30 & 0.00 & 2.59 & 0.0000*** \\ 
+Growth & 0.64 & 15.68 & -1.00 & 479.78 & 0.66 & 17.00 & -1.00 & 479.78 & 0.62 & 14.55 & -1.00 & 454.58 & 0.9599 \\ 
+VarGDP & 1.82 & 1.07 & 0.02 & 3.84 & 2.83 & 0.65 & 0.02 & 3.84 & 0.99 & 0.47 & 0.29 & 1.67 & 0.0000*** \\ 
+Inflat & 0.65 & 0.77 & -0.50 & 1.96 & 0.73 & 0.98 & -0.50 & 1.96 & 0.59 & 0.54 & -0.09 & 1.23 & 0.0000*** \\ 
+Gender & 21.38 & 31.00 & 0.00 & 100.00 & 24.36 & 30.47 & 0.00 & 100.00 & 18.95 & 31.22 & 0.00 & 100.00 & 0.0000*** \\ 
+OpInc & 7.48 & 1.30 & -1.82 & 12.43 & 7.55 & 1.26 & 1.27 & 12.43 & 7.42 & 1.33 & -1.82 & 11.92 & 0.0171** \\ 
+StockT & 66.77 & 353.73 & -0.15 & 9,680.32 & 47.80 & 254.31 & 0.03 & 3,647.51 & 82.09 & 416.62 & -0.15 & 9,680.32 & 0.0387** \\ 
+AssetT & 0.69 & 0.70 & -0.06 & 15.20 & 0.77 & 0.91 & 0.00 & 15.20 & 0.63 & 0.46 & -0.06 & 3.69 & 0.0000*** \\ 
+ARP & 132.06 & 140.49 & 0.00 & 981.75 & 132.71 & 130.10 & 0.00 & 967.13 & 131.52 & 148.53 & 0.00 & 981.75 & 0.8432 \\ 
+APP & 64.92 & 104.16 & 0.00 & 993.43 & 47.50 & 77.82 & 0.00 & 993.43 & 79.21 & 119.74 & 0.00 & 962.24 & 0.0000*** \\ 
+Age & 27.84 & 17.11 & -2.95 & 103.41 & 26.45 & 12.73 & -2.95 & 62.05 & 28.96 & 19.91 & -2.55 & 103.41 & 0.0005*** \\ 
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Tabla 3}\label{tabla-3}
+
+La Tabla 3 muestra los resultados de la prueba de chi-cuadrado aplicada
+a la forma legal según el país de referencia. Se encuentran diferencias
+significativas entre España e Italia. Mientras que en España hay muchas
+empresas con la forma legal de sociedad anónima, en Italia se observa
+una clara preferencia por las sociedades de responsabilidad limitada.
+Del mismo modo, Italia cuenta con cooperativas y otras formas sociales
+en este sector, las cuales prácticamente no existen en España. De hecho,
+España es un país donde la forma legal de cooperativa es ampliamente
+utilizada en otros sectores, como la agricultura, pero está casi ausente
+en el sector de la piedra natural.
+
+Se tiene como propósito contar las frecuencias de los niveles de la
+variable categórica LForm (que representa la forma legal de las
+empresas) en diferentes conjuntos de datos.
+
+En primer lugar, se trabaja con el conjunto de datos DATA\_SELECT, que
+contiene información general. A través de la función count(LForm), se
+calcula el número total de empresas para cada nivel de la variable
+LForm. Posteriormente, se renombra la columna que contiene los conteos
+como ``Total sample'' para indicar que representa la totalidad de la
+muestra.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{LF\_GENERAL }\OtherTok{\textless{}{-}}\NormalTok{ DATA\_SELECT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(LForm) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename}\NormalTok{(}\StringTok{"Total sample"} \OtherTok{=}\NormalTok{ n)}
+\NormalTok{LF\_ESPAÑA}\OtherTok{\textless{}{-}}\NormalTok{ OB\_ES }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(LForm) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename}\NormalTok{(}\AttributeTok{Spain =}\NormalTok{ n)}
+\NormalTok{LF\_ITALIA}\OtherTok{\textless{}{-}}\NormalTok{ OB\_IT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(LForm) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rename}\NormalTok{(}\AttributeTok{Italy =}\NormalTok{ n)}
+\end{Highlighting}
+\end{Shaded}
+
+Se utiliza la función full\_join para unir tres tablas basadas en una
+columna común. La unión completa asegura que todas las observaciones de
+las tablas se conserven, incluso si no hay coincidencias entre ellas.
+Luego, se usa is.na() para identificar y reemplazar los valores
+faltantes con ceros en el resultado de la unión.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Unir las tablas por \textquotesingle{}LForm\textquotesingle{} (el tipo de empresa)}
+\NormalTok{T\_LEGAL\_FORM }\OtherTok{\textless{}{-}}\NormalTok{ LF\_GENERAL }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(LF\_ESPAÑA, }\AttributeTok{by =} \StringTok{"LForm"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(LF\_ITALIA, }\AttributeTok{by =} \StringTok{"LForm"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Posteriormente, se emplean las funciones distinct para obtener los
+valores únicos de dos columnas relacionadas con las formas legales. Se
+define un vector que asigna nombres descriptivos a códigos numéricos
+representando tipos de empresas. Finalmente, la función mutate se usa
+para reemplazar los códigos numéricos por los nombres de los tipos de
+empresas, y rename cambia el nombre de la columna LForm a ``Legal form''
+para una mejor comprensión.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Rellenar con ceros en caso de valores faltantes}
+\NormalTok{T\_LEGAL\_FORM[}\FunctionTok{is.na}\NormalTok{(T\_LEGAL\_FORM)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\NormalTok{DATA\_Manipulada }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{distinct}\NormalTok{(Standard\_Legal\_Form)}
+\NormalTok{DATA\_Manipulada }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{distinct}\NormalTok{(Legal\_Form)}
+\NormalTok{tipo\_empresa }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"0"} \OtherTok{=} \StringTok{"Public limited company"}\NormalTok{, }
+                  \StringTok{"1"} \OtherTok{=} \StringTok{"Private limited company"}\NormalTok{, }
+                  \StringTok{"3"} \OtherTok{=} \StringTok{"Cooperative"}\NormalTok{, }
+                  \StringTok{"4"} \OtherTok{=} \StringTok{"Other legal forms"}\NormalTok{)}
+\CommentTok{\# Reemplazar los códigos numéricos con los nombres de tipos de empresas}
+\NormalTok{T\_LEGAL\_FORM }\OtherTok{\textless{}{-}}\NormalTok{T\_LEGAL\_FORM }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{LForm =}\NormalTok{ tipo\_empresa[}\FunctionTok{as.character}\NormalTok{(LForm)])}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\StringTok{"Legal form"} \OtherTok{=}\NormalTok{ LForm)}
+\end{Highlighting}
+\end{Shaded}
+
+Se realiza el calculo del test de Chi-cuadrado para comparar las
+frecuencias observadas entre dos columnas específicas (en este caso,
+España e Italia). Primero, selecciona los valores de estas dos columnas
+y los convierte en una matriz mediante as.matrix(). Luego, se aplica la
+función chisq.test() para calcular el test de Chi-cuadrado sobre las
+frecuencias observadas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Calculo de Chi{-}squared test}
+\NormalTok{observed }\OtherTok{\textless{}{-}}\NormalTok{ T\_LEGAL\_FORM }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Spain, Italy) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{as.matrix}\NormalTok{()}
+
+\NormalTok{chisq\_test }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(observed)}
+
+\CommentTok{\# Extraer los valores del test y formatearlos}
+\NormalTok{chi\_squared\_value }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(chisq\_test}\SpecialCharTok{$}\NormalTok{statistic, }\DecValTok{4}\NormalTok{)}
+
+\CommentTok{\# Formatear p{-}value manualmente (sin "\textless{}")}
+\NormalTok{p\_value }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(chisq\_test}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}} \FloatTok{0.0000}\NormalTok{, }\StringTok{"0.0000"}\NormalTok{, }
+                  \FunctionTok{sprintf}\NormalTok{(}\StringTok{"\%.4f"}\NormalTok{, chisq\_test}\SpecialCharTok{$}\NormalTok{p.value)) }
+
+\CommentTok{\# Agregar el resultado del Chi{-}cuadrado a la tabla}
+\NormalTok{tabla\_3 }\OtherTok{\textless{}{-}}\NormalTok{ T\_LEGAL\_FORM }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Chi{-}squared test}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{row\_number}\NormalTok{() }\SpecialCharTok{==} \DecValTok{1}\NormalTok{, }
+                                     \FunctionTok{paste0}\NormalTok{(chi\_squared\_value, }
+                                            \StringTok{" ("}\NormalTok{, p\_value, }\StringTok{")"}\NormalTok{), }
+                                     \StringTok{""}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Finalmente se utiliza la función gt() para crear una tabla estilizada,
+personalizándola con opciones para ajustar títulos, etiquetas de
+columnas, alineación de celdas, bordes y notas al pie.
+
+La Tabla 3 muestre los resultados del test de Chi-cuadrado junto con las
+frecuencias de las formas legales por país, mejorando así la
+presentación de los datos y facilitando su comprensión.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Formatear la tabla con gt()}
+\NormalTok{tabla\_3 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gt}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_header}\NormalTok{(}
+    \AttributeTok{title =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Tabla 3. Forma jurídica por país**"}\NormalTok{),}
+    \AttributeTok{subtitle =} \StringTok{""}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_label}\NormalTok{(}
+    \StringTok{\textasciigrave{}}\AttributeTok{Legal form}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{md}\NormalTok{(}\StringTok{"**Forma jurídica**"}\NormalTok{),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Total sample}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{md}\NormalTok{(}\StringTok{"**Muestra total**"}\NormalTok{),}
+    \AttributeTok{Spain =} \FunctionTok{md}\NormalTok{(}\StringTok{"**España**"}\NormalTok{),}
+    \AttributeTok{Italy =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Italia**"}\NormalTok{),}
+    \StringTok{\textasciigrave{}}\AttributeTok{Chi{-}squared test}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{md}\NormalTok{(}\StringTok{"**Prueba de chi{-}cuadrado**"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_align}\NormalTok{(}
+    \AttributeTok{align =} \StringTok{"left"}\NormalTok{,}
+    \AttributeTok{columns =} \StringTok{\textasciigrave{}}\AttributeTok{Legal form}\StringTok{\textasciigrave{}}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_align}\NormalTok{(}
+    \AttributeTok{align =} \StringTok{"center"}\NormalTok{,}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Total sample}\StringTok{\textasciigrave{}}\NormalTok{, Spain, Italy, }\StringTok{\textasciigrave{}}\AttributeTok{Chi{-}squared test}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_options}\NormalTok{(}
+    \AttributeTok{column\_labels.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{12}\NormalTok{), }\CommentTok{\# Tamaño del texto de encabezado}
+    \AttributeTok{table.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{12}\NormalTok{) }\CommentTok{\# Tamaño del texto en la tabla}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_style}\NormalTok{(}
+    \AttributeTok{style =} \FunctionTok{list}\NormalTok{(}
+      \FunctionTok{cell\_text}\NormalTok{(}\AttributeTok{align =} \StringTok{"center"}\NormalTok{)  }
+\NormalTok{    ),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"title"}\NormalTok{)  }
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\caption*{
+{\large \textbf{Tabla 3. Forma jurídica por país}}
+} 
+\fontsize{9.0pt}{10.8pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc}
+\toprule
+\textbf{Forma jurídica} & \textbf{Muestra total} & \textbf{España} & \textbf{Italia} & \textbf{Prueba de chi-cuadrado} \\ 
+\midrule\addlinespace[2.5pt]
+Public limited company & 405 & 325 & 80 & 272.8377 (0.0000) \\ 
+Private limited company & 1765 & 670 & 1095 &  \\ 
+Cooperative & 65 & 20 & 45 &  \\ 
+Other legal forms & 35 & 0 & 35 &  \\ 
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Tabla 4}\label{tabla-4}
+
+Muestra la matriz de correlación de Pearson entre las variables
+continuas utilizadas en el estudio empírico. Se puede observar que no
+existen correlaciones elevadas entre los regresores que puedan generar
+problemas de colinealidad en el análisis multivariante posterior.
+
+Además, todos los regresores, excepto la inflación, presentan una
+correlación significativa con las variables dependientes (ROE y ROA).
+Específicamente, el volumen de activos, los períodos promedio de cobro y
+pago, la antigüedad de la empresa, el cambio en el PIB y el género de la
+dirección están negativamente correlacionados con ROE y ROA. Para el
+cambio en el PIB y el género, la relación solo es significativa en el
+caso del ROE.
+
+Por otro lado, la correlación es positiva para las variables que miden
+el ingreso operativo, la rotación de inventario, la rotación de activos
+y el crecimiento, aunque solo la correlación entre ROA y crecimiento es
+significativa.
+
+En cuanto al endeudamiento, la correlación es significativa y negativa
+para el ROA, pero positiva para el ROE.
+
+Para calcular la matriz de correlación, primero se usa select(), que
+permite extraer únicamente las variables numéricas de interés. Luego,
+con cor\_mat(method = ``pearson''), se calcula la matriz de correlación
+utilizando el método de Pearson, que mide la relación lineal entre las
+variables.
+
+Posteriormente, cor\_mark\_significant() se encarga de marcar aquellas
+correlaciones que son estadísticamente significativas, lo que ayuda a
+interpretar los resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Generar la matriz de correlación}
+\NormalTok{correlation\_matrix }\OtherTok{\textless{}{-}}\NormalTok{ G }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ROE, ROA, Size, Debt, Growth, VarGDP, Inflat, Gender, OpInc, StockT, }
+\NormalTok{         AssetT, ARP, APP, Age) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cor\_mat}\NormalTok{(}\AttributeTok{method =} \StringTok{"pearson"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cor\_mark\_significant}\NormalTok{() }\CommentTok{\# Añade los niveles de significancia}
+\end{Highlighting}
+\end{Shaded}
+
+Finalmente, para visualizar los datos de manera clara, se utiliza gt(),
+que convierte la matriz en una tabla interactiva, y tab\_options(), que
+ajusta el tamaño del texto de la tabla para mejorar la presentación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mostrar la matriz de correlación en una vista interactiva}
+\NormalTok{correlation\_matrix  }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{gt}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_header}\NormalTok{(}
+    \AttributeTok{title =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Tabla 4. Correlación pearson para las variables continuas**"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_options}\NormalTok{(}
+    \AttributeTok{column\_labels.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{5}\NormalTok{), }\CommentTok{\# Tamaño del texto de encabezado}
+    \AttributeTok{table.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{5}\NormalTok{) }\CommentTok{\# Tamaño del texto en la tabla}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_style}\NormalTok{(}
+    \AttributeTok{style =} \FunctionTok{list}\NormalTok{(}
+      \FunctionTok{cell\_text}\NormalTok{(}\AttributeTok{align =} \StringTok{"center"}\NormalTok{)  }
+\NormalTok{    ),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"title"}\NormalTok{)  }
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\caption*{
+{\large \textbf{Tabla 4. Correlación pearson para las variables continuas}}
+} 
+\fontsize{3.8pt}{4.5pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}l|rrrrrrrrrrrrrr}
+\toprule
+ & ROE & ROA & Size & Debt & Growth & VarGDP & Inflat & Gender & OpInc & StockT & AssetT & ARP & APP & Age \\ 
+\midrule\addlinespace[2.5pt]
+ROE &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+ROA & 0.44**** &  &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+Size & -0.064** & -0.064** &  &  &  &  &  &  &  &  &  &  &  &  \\ 
+Debt & -0.07** & -0.24**** & -0.2**** &  &  &  &  &  &  &  &  &  &  &  \\ 
+Growth & 0.02 & 0.059* & -0.012 & -0.013 &  &  &  &  &  &  &  &  &  &  \\ 
+VarGDP & -0.025 & -0.0083 & -0.02 & -0.22**** & 0.0043 &  &  &  &  &  &  &  &  &  \\ 
+Inflat & -0.024 & 0.0041 & 0.028 & -0.033 & -0.00053 & -0.055** &  &  &  &  &  &  &  &  \\ 
+Gender & 0.0084 & -0.012 & -0.048* & -0.046* & -0.024 & 0.072*** & 0.0076 &  &  &  &  &  &  &  \\ 
+OpInc & 0.071** & 0.2**** & 0.58**** & -0.1**** & 0.0028 & 0.013 & 0.038 & -0.078*** &  &  &  &  &  &  \\ 
+StockT & 0.068** & 0.12**** & -0.011 & 0.018 & 0.018 & -0.053* & -0.032 & -0.0082 & 0.067** &  &  &  &  &  \\ 
+AssetT & 0.13**** & 0.3**** & -0.43**** & 0.15**** & 0.019 & 0.083*** & 0.0062 & -0.029 & 0.21**** & 0.11**** &  &  &  &  \\ 
+ARP & -0.07** & -0.17**** & 0.09**** & -0.022 & 0.012 & 0.0094 & -0.011 & -0.031 & -0.16**** & -0.0067 & -0.25**** &  &  &  \\ 
+APP & -0.1**** & -0.19**** & -0.034 & 0.2**** & -0.0042 & -0.13**** & -0.031 & -0.051* & -0.2**** & -0.033 & -0.15**** & 0.32**** &  &  \\ 
+Age & -0.0053 & -0.061** & 0.32**** & -0.17**** & -0.06* & -0.036 & -0.056** & 0.07*** & 0.14**** & -0.039 & -0.21**** & 0.034 & -0.045* &  \\ 
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Tabla 5}\label{tabla-5}
+
+Muestra los resultados del análisis de varianza del ROA y ROE en función
+de la forma jurídica de la empresa. Se observa que, efectivamente,
+existe una relación significativa entre la forma jurídica de la empresa
+y los dos tipos de rentabilidad, tanto en España como en Italia.
+
+Se calcula el promedio de los indicadores financieros ROE (Return on
+Equity) y ROA (Return on Assets) según la forma legal de las empresas.
+Este análisis se realiza de manera general, considerando toda la muestra
+de datos, y luego se repite específicamente para empresas en España e
+Italia. Para ello, se utiliza la función group\_by() para agrupar los
+datos según la forma legal (LForm), seguida de summarise() para calcular
+la media de ROE y ROA, excluyendo valores nulos mediante na.rm = TRUE.
+Estos cálculos permiten obtener una visión comparativa del desempeño
+financiero según la estructura legal de las empresas en diferentes
+regiones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) GENRAL}
+\NormalTok{legal\_form\_means\_GENERAL }\OtherTok{\textless{}{-}}\NormalTok{ DATA\_SELECT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(LForm , Country, ROA, ROE)}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(LForm) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Mean\_ROE =} \FunctionTok{mean}\NormalTok{(ROE, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{Mean\_ROA =} \FunctionTok{mean}\NormalTok{(ROA, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\CommentTok{\# Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) ESPAÑA}
+\NormalTok{legal\_form\_means\_ESPAÑA }\OtherTok{\textless{}{-}}\NormalTok{ OB\_ES }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(LForm , Country, ROA, ROE) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(LForm) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Mean\_ROE =} \FunctionTok{mean}\NormalTok{(ROE, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{Mean\_ROA =} \FunctionTok{mean}\NormalTok{(ROA, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\CommentTok{\# Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) ITALIA}
+\NormalTok{legal\_form\_means\_ITALIA }\OtherTok{\textless{}{-}}\NormalTok{ OB\_IT }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(LForm , Country, ROA, ROE) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{(LForm) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Mean\_ROE =} \FunctionTok{mean}\NormalTok{(ROE, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{Mean\_ROA =} \FunctionTok{mean}\NormalTok{(ROA, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+Se realiza un análisis de varianza (ANOVA) para evaluar si existen
+diferencias estadísticamente significativas en los valores de ROA y ROE
+según la forma legal de las empresas. Este análisis se lleva a cabo en
+tres niveles: para toda la muestra, para España y para Italia. Se
+utiliza la función aov(), que aplica un ANOVA unidireccional sobre la
+variable dependiente (ROA o ROE) en función de la variable categórica
+LForm. Los resultados de este análisis permitirán determinar si la
+estructura legal de una empresa influye significativamente en su
+desempeño financiero en cada contexto geográfico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ANOVA por forma legal para ROA y ROE (Muestra total)}
+\NormalTok{anova\_roa\_total }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(ROA }\SpecialCharTok{\textasciitilde{}}\NormalTok{ LForm, }\AttributeTok{data =}\NormalTok{ DATA\_SELECT)}
+\NormalTok{anova\_roe\_total }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(ROE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ LForm, }\AttributeTok{data =}\NormalTok{ DATA\_SELECT)}
+\CommentTok{\# ANOVA por forma legal para España}
+\NormalTok{anova\_roa\_es }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(ROA }\SpecialCharTok{\textasciitilde{}}\NormalTok{ LForm, }\AttributeTok{data =}\NormalTok{ OB\_ES)}
+\NormalTok{anova\_roe\_es }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(ROE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ LForm, }\AttributeTok{data =}\NormalTok{ OB\_ES)}
+\CommentTok{\# ANOVA por forma legal para Italia}
+\NormalTok{anova\_roa\_it }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(ROA }\SpecialCharTok{\textasciitilde{}}\NormalTok{ LForm, }\AttributeTok{data =}\NormalTok{ OB\_IT)}
+\NormalTok{anova\_roe\_it }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(ROE }\SpecialCharTok{\textasciitilde{}}\NormalTok{ LForm, }\AttributeTok{data =}\NormalTok{ OB\_IT)}
+\end{Highlighting}
+\end{Shaded}
+
+Los resultados de los cálculos anteriores se combinan en una única
+tabla. Se inicia con la tabla de promedios generales y, utilizando la
+función left\_join(), se integran los resultados específicos de España e
+Italia. Además, se renombraron las columnas para mejorar la claridad,
+indicando a qué país o muestra total pertenecen los valores de ROE y
+ROA. Finalmente, se redondean los valores a dos decimales mediante
+mutate(across(where(is.numeric), \textasciitilde{} round(.x, 2))), lo
+que facilita la presentación y comparación de los datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Combinar los datos de means }
+\NormalTok{tabla\_means }\OtherTok{\textless{}{-}}\NormalTok{ legal\_form\_means\_GENERAL }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\StringTok{"ROE\_Total\_sample"} \OtherTok{=}\NormalTok{ Mean\_ROE, }\StringTok{"ROA\_Total\_sample"} \OtherTok{=}\NormalTok{ Mean\_ROA) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(}
+\NormalTok{    legal\_form\_means\_ESPAÑA }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{rename}\NormalTok{(}\StringTok{"ROE\_Spain"} \OtherTok{=}\NormalTok{ Mean\_ROE, }\StringTok{"ROA\_Spain"} \OtherTok{=}\NormalTok{ Mean\_ROA),}
+    \AttributeTok{by =} \StringTok{"LForm"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(}
+\NormalTok{    legal\_form\_means\_ITALIA }\SpecialCharTok{\%\textgreater{}\%}
+      \FunctionTok{rename}\NormalTok{(}\StringTok{"ROE\_Italy"} \OtherTok{=}\NormalTok{ Mean\_ROE, }\StringTok{"ROA\_Italy"} \OtherTok{=}\NormalTok{ Mean\_ROA),}
+    \AttributeTok{by =} \StringTok{"LForm"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{round}\NormalTok{(.x, }\DecValTok{2}\NormalTok{)))  }\CommentTok{\# Redondear a 2 decimales}
+\end{Highlighting}
+\end{Shaded}
+
+Se genera un nuevo dataframe que almacena los resultados de los análisis
+ANOVA. Se construye una tabla donde cada fila representa los valores de
+F y p-value para ROE y ROA en la muestra total, España e Italia. Para
+mejorar la interpretación de los resultados, los valores F se presentan
+junto con una notación de significancia estadística (\emph{\textbf{, },
+}), indicando niveles del 1\%, 5\% y 10\% respectivamente. Esta notación
+se agrega utilizando estructuras condicionales ifelse(), que verifican
+el valor p correspondiente a cada análisis de varianza.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear un dataframe separado para los valores ANOVA}
+\NormalTok{anova\_results }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \StringTok{\textasciigrave{}}\AttributeTok{Legal Form}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Total sample"}\NormalTok{, }\StringTok{"Spain"}\NormalTok{, }\StringTok{"Italy"}\NormalTok{),}
+  
+  \CommentTok{\# F{-}value con significancia para ROE}
+  \StringTok{\textasciigrave{}}\AttributeTok{F{-}value (ROE)}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+    \FunctionTok{round}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+      \FunctionTok{summary}\NormalTok{(anova\_roe\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"F value"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+      \FunctionTok{summary}\NormalTok{(anova\_roe\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"F value"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+      \FunctionTok{summary}\NormalTok{(anova\_roe\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"F value"}\NormalTok{]][}\DecValTok{1}\NormalTok{]}
+\NormalTok{    ), }\DecValTok{2}\NormalTok{),}
+    \FunctionTok{c}\NormalTok{(}
+      \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }\StringTok{"***"}\NormalTok{,}
+             \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }\StringTok{"**"}\NormalTok{,}
+                    \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.10}\NormalTok{,}
+                           \StringTok{"*"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{             )}
+\NormalTok{      ),}
+      \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }\StringTok{"***"}\NormalTok{,}
+             \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }\StringTok{"**"}\NormalTok{,}
+                    \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.10}\NormalTok{,}
+                           \StringTok{"*"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{             )}
+\NormalTok{      ),}
+      \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }\StringTok{"***"}\NormalTok{,}
+             \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }\StringTok{"**"}\NormalTok{,}
+                    \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roe\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.10}\NormalTok{,}
+                           \StringTok{"*"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{             )}
+\NormalTok{      )}
+\NormalTok{    )}
+\NormalTok{  ),}
+  
+  \CommentTok{\# p{-}value para ROE}
+  \StringTok{\textasciigrave{}}\AttributeTok{p{-}value (ROE)}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}
+    \FunctionTok{summary}\NormalTok{(anova\_roe\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+    \FunctionTok{summary}\NormalTok{(anova\_roe\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+    \FunctionTok{summary}\NormalTok{(anova\_roe\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{]}
+\NormalTok{  ),}
+  
+  \CommentTok{\# F{-}value con significancia para ROA}
+  \StringTok{\textasciigrave{}}\AttributeTok{F{-}value (ROA)}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+    \FunctionTok{round}\NormalTok{(}\FunctionTok{c}\NormalTok{(}
+      \FunctionTok{summary}\NormalTok{(anova\_roa\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"F value"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+      \FunctionTok{summary}\NormalTok{(anova\_roa\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"F value"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+      \FunctionTok{summary}\NormalTok{(anova\_roa\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"F value"}\NormalTok{]][}\DecValTok{1}\NormalTok{]}
+\NormalTok{    ), }\DecValTok{2}\NormalTok{),}
+    \FunctionTok{c}\NormalTok{(}
+      \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }\StringTok{"***"}\NormalTok{,}
+             \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }\StringTok{"**"}\NormalTok{,}
+                    \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.10}\NormalTok{, }
+                           \StringTok{"*"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{             )}
+\NormalTok{      ),}
+      \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }\StringTok{"***"}\NormalTok{,}
+             \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }\StringTok{"**"}\NormalTok{,}
+                    \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.10}\NormalTok{,}
+                           \StringTok{"*"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{             )}
+\NormalTok{      ),}
+      \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.01}\NormalTok{, }\StringTok{"***"}\NormalTok{,}
+             \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{, }\StringTok{"**"}\NormalTok{,}
+                    \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{summary}\NormalTok{(anova\_roa\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\textless{}} \FloatTok{0.10}\NormalTok{,}
+                           \StringTok{"*"}\NormalTok{, }\StringTok{""}\NormalTok{)}
+\NormalTok{             )}
+\NormalTok{      )}
+\NormalTok{    )}
+\NormalTok{  ),}
+  
+  \CommentTok{\# p{-}value para ROA}
+  \StringTok{\textasciigrave{}}\AttributeTok{p{-}value (ROA)}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}
+    \FunctionTok{summary}\NormalTok{(anova\_roa\_total)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+    \FunctionTok{summary}\NormalTok{(anova\_roa\_es)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{],}
+    \FunctionTok{summary}\NormalTok{(anova\_roa\_it)[[}\DecValTok{1}\NormalTok{]][[}\StringTok{"Pr(\textgreater{}F)"}\NormalTok{]][}\DecValTok{1}\NormalTok{]}
+\NormalTok{  )}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Se genera una fila adicional para la tabla de resultados con los valores
+F y p-value, facilitando su integración con la tabla de promedios
+previamente construida. Aquí, se formatean los valores para que cada
+celda combine el estadístico F con su correspondiente p-value entre
+paréntesis. Se hace uso de formatC() para mantener un formato de cuatro
+decimales en los p-values, asegurando precisión en la presentación de
+los resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear una fila separada para los valores F y p{-}value con significancia}
+\NormalTok{anova\_row }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{LForm =} \StringTok{"F"}\NormalTok{, }
+  \StringTok{\textasciigrave{}}\AttributeTok{ROE\_Total\_sample}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+\NormalTok{    anova\_results}\SpecialCharTok{$}\NormalTok{F.value..ROE.[}\DecValTok{1}\NormalTok{],}
+    \StringTok{" ("}\NormalTok{, }\FunctionTok{formatC}\NormalTok{(anova\_results}\SpecialCharTok{$}\NormalTok{p.value..ROE.[}\DecValTok{1}\NormalTok{], }\AttributeTok{format =} \StringTok{"f"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{), }\StringTok{")"}
+\NormalTok{  ),}
+  \StringTok{\textasciigrave{}}\AttributeTok{ROA\_Total\_sample}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+\NormalTok{    anova\_results}\SpecialCharTok{$}\NormalTok{F.value..ROA.[}\DecValTok{1}\NormalTok{],}
+    \StringTok{" ("}\NormalTok{, }\FunctionTok{formatC}\NormalTok{(anova\_results}\SpecialCharTok{$}\NormalTok{p.value..ROA.[}\DecValTok{1}\NormalTok{], }\AttributeTok{format =} \StringTok{"f"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{), }\StringTok{")"}
+\NormalTok{  ),}
+  \StringTok{\textasciigrave{}}\AttributeTok{ROE\_Spain}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+\NormalTok{    anova\_results}\SpecialCharTok{$}\NormalTok{F.value..ROE.[}\DecValTok{2}\NormalTok{],}
+    \StringTok{" ("}\NormalTok{, }\FunctionTok{formatC}\NormalTok{(anova\_results}\SpecialCharTok{$}\NormalTok{p.value..ROE.[}\DecValTok{2}\NormalTok{], }\AttributeTok{format =} \StringTok{"f"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{), }\StringTok{")"}
+\NormalTok{  ),}
+  \StringTok{\textasciigrave{}}\AttributeTok{ROA\_Spain}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+\NormalTok{    anova\_results}\SpecialCharTok{$}\NormalTok{F.value..ROA.[}\DecValTok{2}\NormalTok{],}
+    \StringTok{" ("}\NormalTok{, }\FunctionTok{formatC}\NormalTok{(anova\_results}\SpecialCharTok{$}\NormalTok{p.value..ROA.[}\DecValTok{2}\NormalTok{], }\AttributeTok{format =} \StringTok{"f"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{), }\StringTok{")"}
+\NormalTok{  ),}
+  \StringTok{\textasciigrave{}}\AttributeTok{ROE\_Italy}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+\NormalTok{    anova\_results}\SpecialCharTok{$}\NormalTok{F.value..ROE.[}\DecValTok{3}\NormalTok{],}
+    \StringTok{" ("}\NormalTok{, }\FunctionTok{formatC}\NormalTok{(anova\_results}\SpecialCharTok{$}\NormalTok{p.value..ROE.[}\DecValTok{3}\NormalTok{], }\AttributeTok{format =} \StringTok{"f"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{), }\StringTok{")"}
+\NormalTok{  ),}
+  \StringTok{\textasciigrave{}}\AttributeTok{ROA\_Italy}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{paste0}\NormalTok{(}
+\NormalTok{    anova\_results}\SpecialCharTok{$}\NormalTok{F.value..ROA.[}\DecValTok{3}\NormalTok{],}
+    \StringTok{" ("}\NormalTok{, }\FunctionTok{formatC}\NormalTok{(anova\_results}\SpecialCharTok{$}\NormalTok{p.value..ROA.[}\DecValTok{3}\NormalTok{], }\AttributeTok{format =} \StringTok{"f"}\NormalTok{, }\AttributeTok{digits =} \DecValTok{4}\NormalTok{), }\StringTok{")"}
+\NormalTok{  )}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Se realiza una transformación en las tablas previas para asegurar su
+correcta visualización. Primero, las columnas numéricas se convierten en
+caracteres y se reemplazan valores nulos con ``0'' mediante
+replace\_na(). Luego, se combinan las tablas de promedios y valores
+ANOVA en una única tabla consolidada (tabla\_combinada). Además, los
+códigos numéricos de las formas legales de las empresas se reemplazan
+por sus nombres correspondientes utilizando un diccionario de valores
+(tabla5\_empresa), lo que mejora la interpretación de la información.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Convertir columnas en tabla\_means a character y reemplazar NA por "0"}
+\NormalTok{tabla\_means }\OtherTok{\textless{}{-}}\NormalTok{ tabla\_means }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), as.character)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{replace\_na}\NormalTok{(.x, }\StringTok{"0"}\NormalTok{)))}
+
+\CommentTok{\# Convertir columnas en anova\_row a character y reemplazar NA por "0"}
+\NormalTok{anova\_row }\OtherTok{\textless{}{-}}\NormalTok{ anova\_row }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), as.character)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\SpecialCharTok{\textasciitilde{}} \FunctionTok{replace\_na}\NormalTok{(.x, }\StringTok{"0"}\NormalTok{)))}
+
+\CommentTok{\# Combinar ambas tablas}
+\NormalTok{tabla\_combinada }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(tabla\_means, anova\_row)}
+
+
+\NormalTok{tabla5\_empresa }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"0"} \OtherTok{=} \StringTok{"Public limited company"}\NormalTok{, }
+                    \StringTok{"1"} \OtherTok{=} \StringTok{"Private limited company"}\NormalTok{, }
+                    \StringTok{"3"} \OtherTok{=} \StringTok{"Cooperative"}\NormalTok{, }
+                    \StringTok{"4"} \OtherTok{=} \StringTok{"Other legal forms"}\NormalTok{,}
+                    \StringTok{"F"} \OtherTok{=} \StringTok{"F"}\NormalTok{)}
+\CommentTok{\# Reemplazar los códigos numéricos con los nombres de tipos de empresas}
+\NormalTok{tabla\_combinada }\OtherTok{\textless{}{-}}\NormalTok{tabla\_combinada }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{LForm =}\NormalTok{ tabla5\_empresa[}\FunctionTok{as.character}\NormalTok{(LForm)])}\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{rename}\NormalTok{(}\StringTok{"Legal\_Form"} \OtherTok{=}\NormalTok{ LForm)}
+\end{Highlighting}
+\end{Shaded}
+
+Finalmente, se genera una tabla en formato visual utilizando la librería
+gt(). Se establecen títulos y subtítulos con formato Markdown para
+mejorar la presentación del informe. Se organizan las columnas bajo tres
+categorías: muestra total, España e Italia, utilizando tab\_spanner().Se
+configuran estilos de negrita para los grupos de filas y se alinean los
+encabezados y datos en el centro. Además, se añaden notas al pie para
+clarificar que los valores p aparecen entre paréntesis y que los niveles
+de significancia se indican con asteriscos. Finalmente, se ajustan los
+tamaños de fuente mediante tab\_options(), asegurando que la tabla sea
+clara y legible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Crear la tabla con \textasciigrave{}gt()\textasciigrave{}}
+\NormalTok{tabla\_combinada }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{gt}\NormalTok{(}\AttributeTok{rowname\_col =} \StringTok{"Forma Legal"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_header}\NormalTok{(}
+    \AttributeTok{title =} \FunctionTok{md}\NormalTok{(}\StringTok{"**Tabla 5. Promedio de ROA y ROE por forma legal**"}\NormalTok{),}
+    \AttributeTok{subtitle =} \FunctionTok{md}\NormalTok{(}\StringTok{"Análisis de varianza."}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_label}\NormalTok{(}
+    \AttributeTok{Legal\_Form =} \StringTok{"FORMA LEGAL"}\NormalTok{,}
+    \AttributeTok{ROE\_Total\_sample =} \StringTok{"ROE"}\NormalTok{,}
+    \AttributeTok{ROA\_Total\_sample =} \StringTok{"ROA"}\NormalTok{,}
+    \AttributeTok{ROE\_Spain =} \StringTok{"ROE"}\NormalTok{,}
+    \AttributeTok{ROA\_Spain =} \StringTok{"ROA"}\NormalTok{,}
+    \AttributeTok{ROE\_Italy =} \StringTok{"ROE"}\NormalTok{,}
+    \AttributeTok{ROA\_Italy =} \StringTok{"ROA"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_spanner}\NormalTok{(}
+    \AttributeTok{label =} \StringTok{"Muestra total"}\NormalTok{,}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(ROE\_Total\_sample, ROA\_Total\_sample)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_spanner}\NormalTok{(}
+    \AttributeTok{label =} \StringTok{"España"}\NormalTok{,}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(ROE\_Spain, ROA\_Spain)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_spanner}\NormalTok{(}
+    \AttributeTok{label =} \StringTok{"Italia"}\NormalTok{,}
+    \AttributeTok{columns =} \FunctionTok{c}\NormalTok{(ROE\_Italy, ROA\_Italy)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_style}\NormalTok{(}
+    \AttributeTok{style =} \FunctionTok{list}\NormalTok{(}
+      \FunctionTok{cell\_text}\NormalTok{(}\AttributeTok{weight =} \StringTok{"bold"}\NormalTok{)}
+\NormalTok{    ),}
+    \AttributeTok{locations =} \FunctionTok{cells\_row\_groups}\NormalTok{()}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{opt\_table\_lines}\NormalTok{(}\AttributeTok{extent =} \StringTok{"all"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{opt\_align\_table\_header}\NormalTok{(}\AttributeTok{align =} \StringTok{"center"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{cols\_align}\NormalTok{(}
+    \AttributeTok{align =} \StringTok{"center"}\NormalTok{,}
+    \AttributeTok{columns =} \FunctionTok{everything}\NormalTok{()}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_footnote}\NormalTok{(}
+    \AttributeTok{footnote =} \FunctionTok{md}\NormalTok{(}\StringTok{"*p{-}valor entre paréntesis.*"}\NormalTok{),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"subtitle"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_footnote}\NormalTok{(}
+    \AttributeTok{footnote =} \FunctionTok{md}\NormalTok{(}\StringTok{"***, ** y * denotan un nivel de significancia}
+\StringTok{                  por debajo del 1\%, 5\% y 10\%, respectivamente.*"}\NormalTok{),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"subtitle"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_source\_note}\NormalTok{(}
+    \AttributeTok{source\_note =} \StringTok{"Fuente: Elaboración propia."}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_options}\NormalTok{(}
+    \AttributeTok{column\_labels.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{10}\NormalTok{), }\CommentTok{\# Tamaño del texto del encabezado}
+    \AttributeTok{table.font.size =} \FunctionTok{px}\NormalTok{(}\DecValTok{10}\NormalTok{) }\CommentTok{\# Tamaño del texto en la tabla}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tab\_style}\NormalTok{(}
+    \AttributeTok{style =} \FunctionTok{list}\NormalTok{(}
+      \FunctionTok{cell\_text}\NormalTok{(}\AttributeTok{align =} \StringTok{"center"}\NormalTok{)  }
+\NormalTok{    ),}
+    \AttributeTok{locations =} \FunctionTok{cells\_title}\NormalTok{(}\AttributeTok{groups =} \StringTok{"title"}\NormalTok{) }
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\caption*{
+{\large \textbf{Tabla 5. Promedio de ROA y ROE por forma legal}} \\ 
+{\small Análisis de varianza.\textsuperscript{\textit{1,2}}}
+} 
+\fontsize{7.5pt}{9.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccccc}
+\toprule
+ & \multicolumn{2}{c}{Muestra total} & \multicolumn{2}{c}{España} & \multicolumn{2}{c}{Italia} \\ 
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+FORMA LEGAL & ROE & ROA & ROE & ROA & ROE & ROA \\ 
+\midrule\addlinespace[2.5pt]
+Public limited company & 2.67 & 1.62 & 2.17 & 1.39 & 4.69 & 2.5 \\ 
+Private limited company & 5.5 & 3.4 & 3.12 & 3.75 & 6.9 & 3.18 \\ 
+Cooperative & 4.46 & 1.64 & 2.91 & 1.39 & 5.05 & 1.74 \\ 
+Other legal forms & -0.99 & 0.73 & 0 & 0 & -0.99 & 0.73 \\ 
+F & 0.48 (0.6989) & 6.2*** (0.0003) & 0.03 (0.9709) & 7.75*** (0.0005) & 0.38 (0.7666) & 1.6 (0.1870) \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}\emph{p-valor entre paréntesis.}\\
+\textsuperscript{\textit{2}}**\emph{, ** y * denotan un nivel de significancia
+por debajo del 1\%, 5\% y 10\%, respectivamente.}\\
+Fuente: Elaboración propia.\\
+\end{minipage}
+\end{table}
+
+\end{document}

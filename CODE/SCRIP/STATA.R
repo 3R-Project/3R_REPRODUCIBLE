@@ -138,7 +138,7 @@ DATA <- datos_ex %>%
     "BvD_Independence_Indicator" = "Indicador.independencia.BvD"
   )
 
-
+#coercion de datos
 colnames(DATA)
 str(DATA)
 DATA_Manipulada <- DATA %>%
@@ -208,11 +208,44 @@ DATA_Manipulada <- DATA %>%
                                        ordered = FALSE))
 
 
-str(DATA_Manipulada)
-sapply(DATA_Manipulada, class) #mostrara el nombre de las variables con los tipos de datos 
 
 # TABLA 1 ----
+# Crear la tabla utilizando tibble
+tabla <- tibble::tibble(
+  Abreviatura = c("ROE", "ROA", "Tamaño", "Deuda", "Crecimiento", "VarPIB", "Inflación", 
+                  "Género", "IngresoOp", "RotaciónStock", "RotaciónActivos", "PPC", "PPP", 
+                  "Edad", "FormaJurid", "País"),
+  Variable = c("Retorno sobre el patrimonio", "Retorno sobre los activos", "Tamaño de la empresa",
+               "Endeudamiento", "Crecimiento de la empresa", "Cambio en el PIB", 
+               "Inflación del país", "Diversidad de género", "Ingreso operativo", 
+               "Rotación del inventario", "Rotación de activos", 
+               "Período promedio de cobro", "Período promedio de pago", "Edad de la empresa",
+               "Forma jurídica", "País de residencia de la empresa"),
+  Definición = c("Beneficio neto dividido por el patrimonio", 
+                 "Beneficio neto dividido por los activos totales", 
+                 "Logaritmo natural del total de activos de la empresa", 
+                 "Pasivos totales divididos por los activos totales", 
+                 "Porcentaje de cambio en los activos totales", 
+                 "Porcentaje de cambio en el producto interno bruto", 
+                 "Inflación del país en el año", 
+                 "Porcentaje de mujeres en el consejo de administración", 
+                 "Logaritmo natural del ingreso operativo", 
+                 "Costo de ventas dividido por inventario", 
+                 "Ingreso operativo dividido por activos totales", 
+                 "Promedio de días que la empresa tarda en recibir pagos de clientes", 
+                 "Promedio de días que la empresa tarda en pagar a los proveedores", 
+                 "Edad de la empresa en años", 
+                 "La forma jurídica de la empresa: • Sociedad anónima • Sociedad limitada • Cooperativa • Otras formas legales",
+                 "Variable ficticia, igual a 1 para España y 0 para Italia")
+)
 
+# Mostrar la tabla en formato limpio
+tabla
+tabla %>%
+  gt() %>%
+  tab_header(
+    title = "Tabla 1. Definición de variables (ESPAÑOL)"
+  ) 
 #CREACION Y CALCULO DE LAS VARIABLES FALTANTES
 
 DATA_Manipulada<- DATA_Manipulada %>%
@@ -324,14 +357,18 @@ spain_italy_table <- spain_italy_table %>%
 final_table <- RE_G %>%
   left_join(spain_italy_table, by = "variable", suffix = c("_total", ""))
 
+<<<<<<< HEAD:SCRIP/STATA.R
 # Formatear la tabla con gt() 
+=======
+# Formatear la tabla con gt() para que quede como la referencia
+>>>>>>> 9348471 (compendium):CODE/SCRIP/STATA.R
 final_table %>%
   gt() %>%
   fmt_number(
     columns = c(mean, sd, min, max,
                 mean_spain, sd_spain, min_spain, max_spain,
                 mean_italy, sd_italy, min_italy, max_italy),
-    decimals = 4
+    decimals = 2
   ) %>%
   cols_label(
     mean = "Mean",
@@ -362,7 +399,12 @@ final_table %>%
   ) %>%
   tab_header(
     title = "Descriptive statistics and mean difference test by country"
+  ) %>%
+  tab_style(
+    style = cell_borders(sides = "right", color = "black", weight = px(1)),
+    locations = cells_body(columns = c(variable,max, max_spain,max_italy))
   )
+
 
 #TABLA 3 ---- 
 LF_GENERAL <- DATA_SELECT %>% count(LForm) %>% rename("Total sample" = n)%>% view("LF_GENERAL") 
@@ -395,6 +437,7 @@ T_LEGAL_FORM <-T_LEGAL_FORM %>%
 
 View(T_LEGAL_FORM)
 
+#Calculo de Chi-squared test
 observed <- T_LEGAL_FORM %>%
   select(Spain, Italy) %>%
   as.matrix()
@@ -415,20 +458,17 @@ LEGAL_FORM_chi <- T_LEGAL_FORM %>%
 
 LEGAL_FORM_chi %>%
   gt() %>%
-  # Agregar título y subtítulo
   tab_header(
     title = "Table 3. Legal form by country.",
     subtitle = ""
   ) %>%
-  # Renombrar y organizar columnas
   cols_label(
     `Legal form` = "Legal form",
     `Total sample` = "Total sample",
     Spain = "Spain",
     Italy = "Italy",
-    `Chi-squared test` = html("Chi-squared test<sup>+</sup>")
+    `Chi-squared test` = html("Chi-squared test")
   ) %>%
-  # Alinear columnas (izquierda para la primera, centro para las demás)
   cols_align(
     align = "left",
     columns = `Legal form`
@@ -437,27 +477,13 @@ LEGAL_FORM_chi %>%
     align = "center",
     columns = c(`Total sample`, Spain, Italy, `Chi-squared test`)
   ) %>%
-  # Aplicar rayas horizontales
   tab_style(
     style = cell_borders(sides = "bottom", color = "black", weight = px(1)),
-    locations = cells_body(columns = everything(), rows = everything())
-  ) %>%
-  # Añadir nota al pie
-  tab_footnote(
-    footnote = html("<sup>+</sup> p-value in brackets."),
-    locations = cells_column_labels(columns = `Chi-squared test`)
-  ) %>%
-  # Añadir fuente
-  tab_source_note(
-    source_note = "Source: Own elaboration."
-  ) %>%
-  # Aplicar estilos adicionales
-  opt_table_lines(extent = "all")
+    locations = cells_body(columns = everything(), rows = everything))
 
-
-#tabla 4 ----
+#TABLA 4 ----
 # Generar la matriz de correlación
-matrix_correlation <- G %>%
+correlation_matrix <- G %>%
   select(ROE, ROA, Size, Debt, Growth, VarGDP, Inflat, Gender, OpInc, StockT, AssetT, ARP, APP, Age) %>%
   cor_mat(method = "pearson") %>%
   cor_mark_significant() # Añade los niveles de significancia
@@ -466,7 +492,12 @@ matrix_correlation <- G %>%
 View(correlation_matrix)
 correlation_matrix  %>% gt()
 
+<<<<<<< HEAD:SCRIP/STATA.R
 #tabla 5 ----
+=======
+
+#TABLA 5 ----
+>>>>>>> 9348471 (compendium):CODE/SCRIP/STATA.R
 
 # Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) GENRAL
 legal_form_means_GENERAL <- DATA_SELECT %>% select(LForm , Country, ROA, ROE) %>% 
@@ -476,16 +507,14 @@ legal_form_means_GENERAL <- DATA_SELECT %>% select(LForm , Country, ROA, ROE) %>
     Mean_ROA = mean(ROA, na.rm = TRUE)
   )
 # Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) ESPAÑA
-legal_form_means_ESPAÑA <- DATA_SELECT %>% select(LForm , Country, ROA, ROE) %>% 
-  filter(Country=="1") %>%
+legal_form_means_ESPAÑA <- OB_ES %>% select(LForm , Country, ROA, ROE) %>% 
   group_by(LForm) %>%
   summarise(
     Mean_ROE = mean(ROE, na.rm = TRUE),
     Mean_ROA = mean(ROA, na.rm = TRUE)
   )
 # Calcular promedios de ROE y ROA por tipo de empresa (Legal Form) ITALIA
-legal_form_means_ITALIA <- DATA_SELECT %>% select(LForm , Country, ROA, ROE) %>% 
-  filter(Country=="0") %>%
+legal_form_means_ITALIA <- OB_IT %>% select(LForm , Country, ROA, ROE) %>% 
   group_by(LForm) %>%
   summarise(
     Mean_ROE = mean(ROE, na.rm = TRUE),
@@ -624,22 +653,25 @@ anova_row <- data.frame(
 # Verificar la fila con los resultados
 print(anova_row)
 
-
-# Convertir columnas en tabla_means a character
+# Convertir columnas en tabla_means a character y reemplazar NA por "0"
 tabla_means <- tabla_means %>%
-  mutate(across(everything(), as.character))
-# Convertir columnas en anova_row a character
+  mutate(across(everything(), as.character)) %>%
+  mutate(across(everything(), ~ replace_na(.x, "0")))
+
+# Convertir columnas en anova_row a character y reemplazar NA por "0"
 anova_row <- anova_row %>%
-  mutate(across(everything(), as.character))
+  mutate(across(everything(), as.character)) %>%
+  mutate(across(everything(), ~ replace_na(.x, "0")))
 
-
+# Combinar ambas tablas
 tabla_combinada <- bind_rows(tabla_means, anova_row)
 
+
 tabla5_empresa <- c("0" = "Public limited company", 
-                  "1" = "Private limited company", 
-                  "3" = "Cooperative", 
-                  "4" = "Other legal forms",
-                  "F" = "F")
+                    "1" = "Private limited company", 
+                    "3" = "Cooperative", 
+                    "4" = "Other legal forms",
+                    "F" = "F")
 # Reemplazar los códigos numéricos con los nombres de tipos de empresas
 tabla_combinada <-tabla_combinada %>%
   mutate(LForm = tabla5_empresa[as.character(LForm)])%>% 
@@ -697,3 +729,42 @@ tabla_combinada %>%
   tab_source_note(
     source_note = "Source: Own elaboration."
   )
+
+
+
+
+
+
+tinytex::install_tinytex()
+
+install.packages('rmarkdown', dependencies = TRUE)
+library(rmarkdown)
+
+
+install.packages("knitr", dependencies = TRUE)
+#################################################
+
+install.packages('devtools')
+devtools::install_github('rstudio/rmarkdown')
+################################################
+
+install.packages("tinytex", dependencies = TRUE)
+tinytex::install_tinytex()
+#################################################
+
+devtools::install_github('yihui/tinytex')
+tinytex::reinstall_tinytex() # reinstall it for a newer version
+
+##############################################################
+
+install.packages("xfun")
+
+library(gt)
+library(tibble)
+install.packages("kableExtra")
+stats::group_rows
+
+library(kableExtra)
+library(knitr)
+
+options(knitr.kable.NA = '') # Para manejar valores vacíos en kable
